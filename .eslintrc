@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended"
+  ],
+  "rules": {
+    "func-names": ["error", "never"],
+    "@typescript-eslint/default-param-last": 0,
+    "import/no-extraneous-dependencies": [ "error", { "devDependencies": true } ],
+    "@typescript-eslint/quotes": [ "error", "single" ],
+    "react/react-in-jsx-scope": 0,
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}
