@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Nunito } from 'next/font/google';
 
+import { Navbar } from '@/app/components/navbar/Navbar';
 import Layout from '@/app/styles/layout';
 
 export const metadata = {
@@ -18,7 +19,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className={font.className}>
         <Layout>
-          <div>{children}</div>
+          <Navbar />
+          {children}
         </Layout>
       </body>
     </html>

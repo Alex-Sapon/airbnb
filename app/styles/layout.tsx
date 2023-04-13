@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 
 import { ThemeProvider } from 'styled-components';
 
@@ -8,7 +8,7 @@ import { GlobalStyles } from '@/app/styles/globals';
 import StyledComponentsRegistry from '@/app/styles/registry';
 import { styles } from '@/app/styles/styles';
 
-const Layout = ({ children }: { children: ReactElement }) => (
+const Layout = ({ children }: { children: ReactNode }) => (
   <StyledComponentsRegistry>
     <ThemeProvider theme={styles}>
       <GlobalStyles />

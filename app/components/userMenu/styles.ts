@@ -40,12 +40,31 @@ export const MenuList = styled.ul`
   position: absolute;
   top: 50px;
   right: 0;
-  overflow: hidden;
   width: 25vw;
   border-radius: 10px;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   box-shadow: ${(props) => props.theme.shadow.menu};
   background-color: ${(props) => props.theme.color.menuBG};
+
+  &.fade-enter {
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: all 300ms;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    overflow: hidden;
+    opacity: 0;
+    transition: all 300ms;
+  }
 `;
 
 export const MenuItem = styled.li`
@@ -53,7 +72,7 @@ export const MenuItem = styled.li`
   padding: 10px 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-weight: ${(props) => props.theme.fontWeight.semiBold};
+  font-weight: ${(props) => props.theme.fontWeight.bold};
 
   &:hover {
     background-color: ${(props) => props.theme.color.menuText};

@@ -8,29 +8,46 @@ export const SearchContainer = styled.div`
   cursor: pointer;
   border: 1px solid ${(props) => props.theme.color.searchBorder};
   transition: all 0.3s ease;
-
-  & > :nth-child(1),
-  & > :nth-child(2) {
-    border-right: 1px solid ${(props) => props.theme.color.searchBorder};
-    font-weight: ${(props) => props.theme.fontWeight.bold};
-  }
+  width: 100%;
 
   &:hover {
     box-shadow: ${(props) => props.theme.shadow.search};
   }
 
+  & > :nth-child(1) {
+    display: flex;
+  }
+
+  & > :nth-child(1),
+  & > :nth-child(2) {
+    width: 100%;
+    font-weight: ${(props) => props.theme.fontWeight.bold};
+  }
+
   @media (${(props) => props.theme.device.mobileL}) {
-    & > :first-child {
-      border-right: none;
+    width: auto;
+
+    & > :nth-child(1) {
+      border-right: 1px solid ${(props) => props.theme.color.searchBorder};
+    }
+
+    & > :nth-child(2) {
       display: flex;
+    }
+  }
+
+  @media (${(props) => props.theme.device.tablet}) {
+    & > :nth-child(2) {
+      border-right: 1px solid ${(props) => props.theme.color.searchBorder};
     }
   }
 `;
 
 export const Text = styled.div`
   padding: 0 15px;
-  align-items: center;
   display: none;
+  border-right: none;
+  white-space: nowrap;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.regular};
 

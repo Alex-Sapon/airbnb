@@ -1,6 +1,9 @@
-import { useState } from 'react';
+'use client';
+
+import { useRef, useState } from 'react';
 
 import { AiOutlineMenu } from 'react-icons/ai';
+import { CSSTransition } from 'react-transition-group';
 
 import { Avatar } from '@/app/components/avatar/Avatar';
 import {
@@ -14,6 +17,8 @@ import {
 export const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const nodeRef = useRef(null);
+
   const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
 
   return (
@@ -23,14 +28,20 @@ export const UserMenu = () => {
         <AiOutlineMenu />
         <Avatar />
       </AvatarWrapper>
-      {isOpen && (
-        <MenuList>
+      <CSSTransition
+        nodeRef={nodeRef}
+        timeout={300}
+        in={isOpen}
+        unmountOnExit
+        classNames="fade"
+      >
+        <MenuList ref={nodeRef}>
           <MenuItem>Login</MenuItem>
           <MenuItem>Login</MenuItem>
           <MenuItem>Login</MenuItem>
           <MenuItem>Login</MenuItem>
         </MenuList>
-      )}
+      </CSSTransition>
     </UserMenuContainer>
   );
 };

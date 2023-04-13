@@ -1,3 +1,5 @@
+'use client';
+
 import { ImageStyled } from '@/app/components/avatar/styles';
 
 export const Avatar = () => {
