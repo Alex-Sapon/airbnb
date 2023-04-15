@@ -42,12 +42,12 @@ export const MenuList = styled.ul`
   right: 0;
   width: 25vw;
   border-radius: 10px;
+  overflow: hidden;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   box-shadow: ${(props) => props.theme.shadow.menu};
   background-color: ${(props) => props.theme.color.menuBG};
 
   &.fade-enter {
-    overflow: hidden;
     opacity: 0;
   }
 
@@ -61,7 +61,6 @@ export const MenuList = styled.ul`
   }
 
   &.fade-exit-active {
-    overflow: hidden;
     opacity: 0;
     transition: all 300ms;
   }

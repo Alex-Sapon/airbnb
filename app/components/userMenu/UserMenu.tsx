@@ -37,9 +37,7 @@ export const UserMenu = () => {
       >
         <MenuList ref={nodeRef}>
           <MenuItem>Login</MenuItem>
-          <MenuItem>Login</MenuItem>
-          <MenuItem>Login</MenuItem>
-          <MenuItem>Login</MenuItem>
+          <MenuItem>Sign up</MenuItem>
         </MenuList>
       </CSSTransition>
     </UserMenuContainer>

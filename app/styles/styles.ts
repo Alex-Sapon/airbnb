@@ -9,6 +9,10 @@ const color = {
   menuBG: '#fff',
   menuBorder: '#d3d3d3',
   menuText: '#eaeaea',
+  modalBG: 'rgba(38, 38, 38, 0.7)',
+  contentBG: '#fff',
+  headerClose: '#000',
+  modalHeaderBorder: '#e5e5e5',
 };
 
 const fontSize = {
@@ -50,6 +54,8 @@ const shadow = {
   header: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
   search: 'rgba(99, 99, 99, 0.2) 0 2px 8px 0',
   menu: 'rgba(99, 99, 99, 0.2) 0 2px 8px 0',
+  modalContent:
+    '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
 };
 
 const size = {
