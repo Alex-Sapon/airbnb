@@ -13,9 +13,12 @@ import {
   MenuList,
   MenuItem,
 } from '@/app/components/userMenu/styles';
+import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 
 export const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { onOpen } = useRegisterModal();
 
   const nodeRef = useRef(null);
 
@@ -37,7 +40,7 @@ export const UserMenu = () => {
       >
         <MenuList ref={nodeRef}>
           <MenuItem>Login</MenuItem>
-          <MenuItem>Sign up</MenuItem>
+          <MenuItem onClick={onOpen}>Sign up</MenuItem>
         </MenuList>
       </CSSTransition>
     </UserMenuContainer>

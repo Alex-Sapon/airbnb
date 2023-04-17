@@ -14,6 +14,46 @@ export const ModalContainer = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
   background-color: ${(props) => props.theme.color.modalBG};
+
+  &.modal-enter {
+    opacity: 0;
+
+    & > div {
+      transform: translateY(150%);
+      opacity: 0.5;
+    }
+  }
+
+  &.modal-enter-active {
+    opacity: 1;
+    transition: all 400ms;
+
+    & > div {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 400ms;
+    }
+  }
+
+  &.modal-exit {
+    opacity: 1;
+
+    & > div {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &.modal-exit-active {
+    opacity: 0;
+    transition: all 500ms;
+
+    & > div {
+      opacity: 0.7;
+      transform: translateY(150%);
+      transition: all 500ms;
+    }
+  }
 `;
 
 export const ModalWrapper = styled.div`

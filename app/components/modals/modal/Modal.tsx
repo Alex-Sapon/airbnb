@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+import { CSSTransition } from 'react-transition-group';
 
 import { Button } from '@/app/components/button/Button';
 import {
@@ -42,6 +44,8 @@ export const Modal = ({
 }: ModalProps) => {
   const [showModal, setShowModal] = useState(isOpen);
 
+  const nodeRef = useRef(null);
+
   const handleClose = () => {
     if (disabled) return;
     onClose();
@@ -61,43 +65,43 @@ export const Modal = ({
     setShowModal(isOpen);
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <ModalContainer>
-      <ModalWrapper>
-        <Content>
-          <Header>
-            <Close onClick={handleClose} />
-            <Title>{title}</Title>
-          </Header>
-          <Body>{body}</Body>
-          <Footer>
-            <Buttons>
-              {secondaryAction && secondaryActionLabel && (
+    <CSSTransition
+      nodeRef={nodeRef}
+      timeout={500}
+      in={showModal}
+      unmountOnExit
+      classNames="modal"
+    >
+      <ModalContainer ref={nodeRef}>
+        <ModalWrapper>
+          <Content>
+            <Header>
+              <Close onClick={handleClose} />
+              <Title>{title}</Title>
+            </Header>
+            <Body>{body}</Body>
+            <Footer>
+              <Buttons>
+                {secondaryAction && secondaryActionLabel && (
+                  <Button
+                    disabled={disabled}
+                    label={secondaryActionLabel}
+                    onClick={handleSecondaryAction}
+                    outline
+                  />
+                )}
                 <Button
                   disabled={disabled}
-                  label={secondaryActionLabel}
-                  onClick={handleSecondaryAction}
-                  outline
+                  label={actionLabel}
+                  onClick={handleSubmit}
                 />
-              )}
-              <Button
-                disabled={disabled}
-                label={actionLabel}
-                onClick={handleSubmit}
-              />
-              <Button
-                disabled={disabled}
-                label={actionLabel}
-                onClick={handleSubmit}
-                outline
-              />
-            </Buttons>
-            {footer}
-          </Footer>
-        </Content>
-      </ModalWrapper>
-    </ModalContainer>
+              </Buttons>
+              {footer}
+            </Footer>
+          </Content>
+        </ModalWrapper>
+      </ModalContainer>
+    </CSSTransition>
   );
 };
