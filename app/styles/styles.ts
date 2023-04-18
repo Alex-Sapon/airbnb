@@ -13,6 +13,12 @@ const color = {
   contentBG: '#fff',
   headerClose: '#000',
   modalHeaderBorder: '#e5e5e5',
+  inputBorderPrimary: 'rgb(212 212 212)',
+  inputBorderSecondary: '#000',
+  inputBorderError: 'rgb(244 63 94)',
+  labelPrimary: 'rgb(161 161 170)',
+  labelError: 'rgb(244 63 94)',
+  divider: 'rgb(212 212 212)',
 };
 
 const fontSize = {

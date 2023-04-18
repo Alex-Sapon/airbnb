@@ -22,7 +22,7 @@ type ModalProps = {
   onClose: () => void;
   onSubmit: () => void;
   title?: string;
-  body?: React.ReactElement;
+  body?: JSX.Element;
   footer?: React.ReactElement;
   actionLabel: string;
   disabled: boolean;

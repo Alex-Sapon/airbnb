@@ -4,7 +4,9 @@ import { FieldValues, UseFormRegister, FieldErrors } from 'react-hook-form';
 
 import {
   InputWrapper,
-  InputStyled,
+  InputElement,
+  Label,
+  Icon,
 } from '@/app/components/inputs/input/styles';
 
 type InputProps = {
@@ -28,17 +30,19 @@ export const Input = ({
   register,
   errors,
 }: InputProps) => {
-  const formRegister = register(id, { required });
-
   return (
     <InputWrapper>
-      <InputStyled
+      {formatPrice && <Icon errors={errors[id]} />}
+      <InputElement
         id={id}
         disabled={disabled}
-        required={formRegister.required}
+        {...register(id, { required })}
         placeholder=" "
         type={type}
+        formatPrice={formatPrice}
+        errors={errors[id]}
       />
+      <Label errors={errors[id]}>{label}</Label>
     </InputWrapper>
   );
 };

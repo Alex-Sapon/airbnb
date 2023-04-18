@@ -19,7 +19,7 @@ export const ModalContainer = styled.div`
     opacity: 0;
 
     & > div {
-      transform: translateY(150%);
+      transform: translateY(80%);
       opacity: 0.5;
     }
   }
@@ -50,7 +50,7 @@ export const ModalContainer = styled.div`
 
     & > div {
       opacity: 0.7;
-      transform: translateY(150%);
+      transform: translateY(80%);
       transition: all 500ms;
     }
   }
@@ -135,5 +135,5 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  gap: 10px;
+  gap: 15px;
 `;

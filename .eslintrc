@@ -21,6 +21,7 @@
     "prettier"
   ],
   "rules": {
+    "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "func-names": ["error", "never"],
     "@typescript-eslint/default-param-last": 0,

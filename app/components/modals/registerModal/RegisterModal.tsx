@@ -5,17 +5,25 @@ import { useState } from 'react';
 import axios from 'axios';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { AiFillGitlab } from 'react-icons/ai';
+import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
+import { Button } from '@/app/components/button/Button';
+import { Input } from '@/app/components/inputs';
 import { Modal } from '@/app/components/modals/modal/Modal';
-import { RegisterBody } from '@/app/components/modals/registerModal/RegisterBody';
+import {
+  Container,
+  Heading,
+  Title,
+  Subtitle,
+  Divider,
+} from '@/app/components/modals/registerModal/styles';
 import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 
 export const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { isOpen, onClose } = useRegisterModal();
+  const registerModal = useRegisterModal();
 
   const {
     register,
@@ -35,7 +43,8 @@ export const RegisterModal = () => {
     axios
       .post('/api/register', data)
       .then(() => {
-        onClose();
+        toast.success('Success!');
+        registerModal.onClose();
       })
       .catch(() => {
         toast.error('Something went wrong.');
@@ -45,15 +54,70 @@ export const RegisterModal = () => {
       });
   };
 
+  const registerBody = (
+    <Container>
+      <Heading>
+        <Title>Welcome to Airbnb</Title>
+        <Subtitle>Create an account!</Subtitle>
+      </Heading>
+      <Input
+        id="name"
+        label="Name"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="email"
+        label="Email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="Password"
+        type="password"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+    </Container>
+  );
+
+  const registerFooter = (
+    <Container>
+      <Divider />
+      <Button
+        label="Continue with Google"
+        onClick={() => {}}
+        icon={FcGoogle}
+        size={22}
+        outline
+      />
+      <Button
+        label="Continue with Github"
+        onClick={() => {}}
+        icon={AiFillGithub}
+        size={22}
+        outline
+      />
+    </Container>
+  );
+
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={onClose}
+      isOpen={registerModal.isOpen}
+      onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       title="Register"
       actionLabel="Continue"
       disabled={isLoading}
-      body={RegisterBody}
+      body={registerBody}
+      footer={registerFooter}
     />
   );
 };
