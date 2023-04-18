@@ -19,7 +19,7 @@ export const ModalContainer = styled.div`
     opacity: 0;
 
     & > div {
-      transform: translateY(80%);
+      transform: translateY(50%);
       opacity: 0.5;
     }
   }
@@ -50,7 +50,7 @@ export const ModalContainer = styled.div`
 
     & > div {
       opacity: 0.7;
-      transform: translateY(80%);
+      transform: translateY(50%);
       transition: all 500ms;
     }
   }

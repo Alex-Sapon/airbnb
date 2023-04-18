@@ -17,6 +17,8 @@ import {
   Title,
   Subtitle,
   Divider,
+  Text,
+  Login,
 } from '@/app/components/modals/registerModal/styles';
 import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 
@@ -105,6 +107,10 @@ export const RegisterModal = () => {
         size={22}
         outline
       />
+      <Text>
+        Already have an account?
+        <Login onClick={registerModal.onClose}>Log in</Login>
+      </Text>
     </Container>
   );
 
