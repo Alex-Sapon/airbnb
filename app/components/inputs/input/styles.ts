@@ -11,9 +11,7 @@ export const InputElement = styled.input`
   padding: 20px 10px 10px ${({ formatPrice }) => (formatPrice ? 20 : 10)}px;
   border: 2px solid
     ${({ theme, errors }) => {
-      return errors
-        ? theme.color.inputBorderError
-        : theme.color.inputBorderPrimary;
+      return errors ? theme.color.complementary : theme.color.inputBorder;
     }};
   font-weight: ${(props) => props.theme.fontWeight.light};
   font-size: ${(props) => props.theme.fontSize.text_sm};
@@ -26,12 +24,12 @@ export const InputElement = styled.input`
   }
 
   &:focus {
-    border: 2px solid ${(props) => props.theme.inputBorderSecondary};
+    border: 2px solid ${(props) => props.theme.secondary};
 
     & + label {
       transform: translateY(-120%);
       font-size: ${(props) => props.theme.fontSize.text_xs};
-      color: ${(props) => props.theme.color.labelPrimary};
+      color: ${(props) => props.theme.color.label};
     }
   }
 `;
@@ -45,7 +43,7 @@ export const Label = styled.label`
   transform: translateY(-20%);
   font-size: ${(props) => props.theme.fontSize.text_sm};
   color: ${({ theme, errors }) => {
-    return errors ? theme.color.labelError : theme.color.labelPrimary;
+    return errors ? theme.color.complementary : theme.color.label;
   }};
 `;
 
@@ -57,6 +55,6 @@ export const Icon = styled(BiDollar).attrs({
   right: 10px;
   transform: translateY(-50%);
   color: ${({ theme, errors }) => {
-    return errors ? theme.color.labelError : theme.color.labelPrimary;
+    return errors ? theme.color.complementary : theme.color.label;
   }};
 `;

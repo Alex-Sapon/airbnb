@@ -6,7 +6,7 @@ export const NavbarContainer = styled.div`
   padding: 15px 0;
   width: 100%;
   z-index: 10;
-  background-color: ${(props) => props.theme.color.header};
+  background-color: ${(props) => props.theme.color.primary};
   box-shadow: ${(props) => props.theme.shadow.header};
 `;
 

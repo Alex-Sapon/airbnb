@@ -14,11 +14,11 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   white-space: nowrap;
   user-select: none;
   padding: ${({ small }) => (small ? '4px' : '11px')};
-  background-color: ${(props) => {
-    return props.outline ? '#fff' : 'rgb(244 63 94)';
+  background-color: ${({ theme, outline }) => {
+    return outline ? theme.color.primary : theme.color.complementary;
   }};
-  color: ${(props) => {
-    return props.outline ? '#000' : '#fff';
+  color: ${({ theme, outline }) => {
+    return outline ? theme.color.secondary : theme.color.primary;
   }};
   font-size: ${({ theme, small }) => {
     return small ? theme.fontSize.text_sm : theme.fontSize.text_base;
@@ -26,9 +26,9 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   font-weight: ${({ theme, small }) => {
     return small ? theme.fontWeight.light : theme.fontWeight.semiBold;
   }};
-  border: ${(props) => (props.small ? '1px' : '2px')} solid
-    ${(props) => {
-      return props.outline ? '#000' : 'rgb(244 63 94)';
+  border: ${({ small }) => (small ? '1px' : '2px')} solid
+    ${({ theme, outline }) => {
+      return outline ? theme.color.secondary : theme.color.complementary;
     }};
 
   &:disabled {

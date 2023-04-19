@@ -18,8 +18,8 @@ export const ModalContainer = styled.div`
   &.modal-enter {
     opacity: 0;
 
-    & > div {
-      transform: translateY(50%);
+    & > .modal-wrapper {
+      transform: translateY(40%);
       opacity: 0.5;
     }
   }
@@ -28,7 +28,7 @@ export const ModalContainer = styled.div`
     opacity: 1;
     transition: all 400ms;
 
-    & > div {
+    & > .modal-wrapper {
       transform: translateY(0);
       opacity: 1;
       transition: all 400ms;
@@ -38,7 +38,7 @@ export const ModalContainer = styled.div`
   &.modal-exit {
     opacity: 1;
 
-    & > div {
+    & > .modal-wrapper {
       transform: translateY(0);
       opacity: 1;
     }
@@ -48,9 +48,9 @@ export const ModalContainer = styled.div`
     opacity: 0;
     transition: all 500ms;
 
-    & > div {
+    & > .modal-wrapper {
       opacity: 0.7;
-      transform: translateY(50%);
+      transform: translateY(40%);
       transition: all 500ms;
     }
   }
@@ -81,7 +81,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: ${(props) => props.theme.color.modalContent};
-  background-color: ${(props) => props.theme.color.contentBG};
+  background-color: ${(props) => props.theme.color.primary};
 
   @media (${(props) => props.theme.device.tablet}) {
     border-radius: 6px;
@@ -95,7 +95,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border-bottom: 1px solid ${(props) => props.theme.color.modalHeaderBorder};
+  border-bottom: 1px solid ${(props) => props.theme.color.modalDivider};
 `;
 
 export const Close = styled(IoMdClose).attrs({

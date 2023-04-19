@@ -45,7 +45,7 @@ export const MenuList = styled.ul`
   overflow: hidden;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   box-shadow: ${(props) => props.theme.shadow.menu};
-  background-color: ${(props) => props.theme.color.menuBG};
+  background-color: ${(props) => props.theme.color.primary};
 
   &.fade-enter {
     opacity: 0;

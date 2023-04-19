@@ -5,8 +5,8 @@ type IconStyledProps = {
 };
 
 export const IconStyled = styled.span<IconStyledProps>`
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   position: absolute;
   top: 50%;
   left: 10px;

@@ -74,7 +74,7 @@ export const Modal = ({
       classNames="modal"
     >
       <ModalContainer ref={nodeRef}>
-        <ModalWrapper>
+        <ModalWrapper className="modal-wrapper">
           <Content>
             <Header>
               <Close onClick={handleClose} />

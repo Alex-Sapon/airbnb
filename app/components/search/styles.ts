@@ -63,7 +63,7 @@ export const SearchWrapper = styled.div`
   min-width: 30px;
   height: 30px;
   font-size: ${(props) => props.theme.fontSize.text_base};
-  color: ${(props) => props.theme.color.searchBG};
-  background-color: ${(props) => props.theme.color.searchLogo};
+  color: ${(props) => props.theme.color.primary};
+  background-color: ${(props) => props.theme.color.complementary};
   border-radius: 100%;
 `;

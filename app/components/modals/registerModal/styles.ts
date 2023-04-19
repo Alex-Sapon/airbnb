@@ -22,7 +22,7 @@ export const Subtitle = styled.h3`
 
 export const Divider = styled.div`
   height: 1px;
-  background-color: ${(props) => props.theme.color.divider};
+  background-color: ${(props) => props.theme.color.modalDivider};
 `;
 
 export const Text = styled.p`
