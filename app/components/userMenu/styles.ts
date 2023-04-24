@@ -47,20 +47,20 @@ export const MenuList = styled.ul`
   box-shadow: ${(props) => props.theme.shadow.menu};
   background-color: ${(props) => props.theme.color.primary};
 
-  &.fade-enter {
+  &.menu-enter {
     opacity: 0;
   }
 
-  &.fade-enter-active {
+  &.menu-enter-active {
     opacity: 1;
     transition: all 300ms;
   }
 
-  &.fade-exit {
+  &.menu-exit {
     opacity: 1;
   }
 
-  &.fade-exit-active {
+  &.menu-exit-active {
     opacity: 0;
     transition: all 300ms;
   }

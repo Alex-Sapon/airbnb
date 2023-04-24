@@ -45,7 +45,7 @@ export const RegisterModal = () => {
     axios
       .post('/api/register', data)
       .then(() => {
-        toast.success('Success!');
+        toast.success('You have successfully registered!');
         registerModal.onClose();
       })
       .catch(() => {
@@ -109,7 +109,7 @@ export const RegisterModal = () => {
       />
       <Text>
         Already have an account?
-        <Login onClick={registerModal.onClose}>Log in</Login>
+        <Login onClick={registerModal.onClose}>Login</Login>
       </Text>
     </Container>
   );

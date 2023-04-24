@@ -10,27 +10,26 @@ export const NavbarContainer = styled.div`
   box-shadow: ${(props) => props.theme.shadow.header};
 `;
 
-export const Logo = styled(Image).attrs({
-  src: '/images/logo.png',
-  alt: 'Logo',
-  width: 100,
-  height: 30,
-  priority: true,
-})`
-  display: none;
-  cursor: pointer;
-  object-fit: contain;
-  object-position: left center;
-  max-width: fit-content;
-
-  @media (${(props) => props.theme.device.mobileL}) {
-    display: block;
-  }
-`;
-
 export const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 20px;
+`;
+
+export const Logo = styled(Image).attrs({
+  src: '/images/logo.png',
+  alt: 'Logo',
+  width: 70,
+  height: 70,
+  priority: true,
+})`
+  width: auto;
+  height: auto;
+  display: none;
+  cursor: pointer;
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    display: block;
+  }
 `;

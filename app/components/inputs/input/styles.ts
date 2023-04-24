@@ -40,10 +40,14 @@ export const Label = styled.label`
   position: absolute;
   top: 50%;
   left: 12px;
-  transform: translateY(-20%);
-  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-size: ${({ theme, value }) => {
+    return value ? theme.fontSize.text_xs : theme.fontSize.text_sm;
+  }};
   color: ${({ theme, errors }) => {
     return errors ? theme.color.complementary : theme.color.label;
+  }};
+  transform: ${({ value }) => {
+    return value ? 'translateY(-120%)' : 'translateY(-20%)';
   }};
 `;
 

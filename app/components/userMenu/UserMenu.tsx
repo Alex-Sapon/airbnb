@@ -36,7 +36,7 @@ export const UserMenu = () => {
         timeout={300}
         in={isOpen}
         unmountOnExit
-        classNames="fade"
+        classNames="menu"
       >
         <MenuList ref={nodeRef}>
           <MenuItem>Login</MenuItem>

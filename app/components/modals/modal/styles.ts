@@ -46,12 +46,12 @@ export const ModalContainer = styled.div`
 
   &.modal-exit-active {
     opacity: 0;
-    transition: all 500ms;
+    transition: all 400ms;
 
     & > .modal-wrapper {
-      opacity: 0.7;
+      opacity: 0.5;
       transform: translateY(40%);
-      transition: all 500ms;
+      transition: all 400ms;
     }
   }
 `;

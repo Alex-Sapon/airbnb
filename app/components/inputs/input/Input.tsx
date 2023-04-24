@@ -1,5 +1,7 @@
 'use client';
 
+import { ChangeEvent, useState } from 'react';
+
 import { FieldValues, UseFormRegister, FieldErrors } from 'react-hook-form';
 
 import {
@@ -30,6 +32,12 @@ export const Input = ({
   register,
   errors,
 }: InputProps) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.currentTarget.value);
+  };
+
   return (
     <InputWrapper>
       {formatPrice && <Icon errors={errors[id]} />}
@@ -41,6 +49,8 @@ export const Input = ({
         type={type}
         formatPrice={formatPrice}
         errors={errors[id]}
+        value={value}
+        onChange={handleChange}
       />
       <Label errors={errors[id]}>{label}</Label>
     </InputWrapper>
