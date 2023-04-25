@@ -1,1 +1,2 @@
-export { RegisterModal } from '@/app/components/modals/registerModal/RegisterModal';
+export { RegisterModal } from '@/app/components/modals/customModals/RegisterModal';
+export { LoginModal } from '@/app/components/modals/customModals/LoginModal';

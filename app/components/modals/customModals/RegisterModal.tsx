@@ -11,6 +11,9 @@ import { FcGoogle } from 'react-icons/fc';
 import { Button } from '@/app/components/button/Button';
 import { Input } from '@/app/components/inputs';
 import { Modal } from '@/app/components/modals/modal/Modal';
+import { useLoginModal } from '@/app/hooks';
+import { useRegisterModal } from '@/app/hooks/useRegisterModal';
+
 import {
   Container,
   Heading,
@@ -19,13 +22,13 @@ import {
   Divider,
   Text,
   Login,
-} from '@/app/components/modals/registerModal/styles';
-import { useRegisterModal } from '@/app/hooks/useRegisterModal';
+} from './styles';
 
 export const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const {
     register,
@@ -54,6 +57,11 @@ export const RegisterModal = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const onToggle = () => {
+    registerModal.onClose();
+    loginModal.onOpen();
   };
 
   const registerBody = (
@@ -109,7 +117,7 @@ export const RegisterModal = () => {
       />
       <Text>
         Already have an account?
-        <Login onClick={registerModal.onClose}>Login</Login>
+        <Login onClick={onToggle}>Login</Login>
       </Text>
     </Container>
   );

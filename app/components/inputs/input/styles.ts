@@ -47,7 +47,7 @@ export const Label = styled.label`
     return errors ? theme.color.complementary : theme.color.label;
   }};
   transform: ${({ value }) => {
-    return value ? 'translateY(-120%)' : 'translateY(-20%)';
+    return value ? 'translateY(-120%)' : 'translateY(-50%)';
   }};
 `;
 

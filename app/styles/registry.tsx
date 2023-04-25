@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
-const StyledComponentsRegistry = ({
+export const StyledComponentsRegistry = ({
   children,
 }: {
   children: React.ReactNode;
@@ -14,6 +14,7 @@ const StyledComponentsRegistry = ({
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement();
+    // @ts-ignore
     styledComponentsStyleSheet.instance.clearTag();
     return styles;
   });
@@ -26,5 +27,3 @@ const StyledComponentsRegistry = ({
     </StyleSheetManager>
   );
 };
-
-export default StyledComponentsRegistry;

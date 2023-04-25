@@ -32,10 +32,10 @@ export const Input = ({
   register,
   errors,
 }: InputProps) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.currentTarget.value);
+    setValue(!!event.currentTarget.value);
   };
 
   return (
@@ -49,10 +49,11 @@ export const Input = ({
         type={type}
         formatPrice={formatPrice}
         errors={errors[id]}
-        value={value}
         onChange={handleChange}
       />
-      <Label errors={errors[id]}>{label}</Label>
+      <Label errors={errors[id]} value={value}>
+        {label}
+      </Label>
     </InputWrapper>
   );
 };

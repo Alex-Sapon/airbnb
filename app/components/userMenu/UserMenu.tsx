@@ -2,27 +2,37 @@
 
 import { useRef, useState } from 'react';
 
+import { User } from 'next-auth';
+import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CSSTransition } from 'react-transition-group';
 
 import { Avatar } from '@/app/components/avatar/Avatar';
+import { useRegisterModal, useLoginModal } from '@/app/hooks';
+
 import {
   UserMenuContainer,
   Text,
   AvatarWrapper,
   MenuList,
   MenuItem,
-} from '@/app/components/userMenu/styles';
-import { useRegisterModal } from '@/app/hooks/useRegisterModal';
+} from './styles';
 
-export const UserMenu = () => {
+type UserMenuProps = {
+  currentUser: User | null;
+};
+
+export const UserMenu = ({ currentUser }: UserMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { onOpen } = useRegisterModal();
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const nodeRef = useRef(null);
 
   const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
+
+  const handleLogout = () => signOut();
 
   return (
     <UserMenuContainer>
@@ -39,8 +49,21 @@ export const UserMenu = () => {
         classNames="menu"
       >
         <MenuList ref={nodeRef}>
-          <MenuItem>Login</MenuItem>
-          <MenuItem onClick={onOpen}>Sign up</MenuItem>
+          {currentUser ? (
+            <>
+              <MenuItem onClick={() => {}}>My trips</MenuItem>
+              <MenuItem onClick={() => {}}>My favorites</MenuItem>
+              <MenuItem onClick={() => {}}>My reservations</MenuItem>
+              <MenuItem onClick={() => {}}>My properties</MenuItem>
+              <MenuItem onClick={() => {}}>Airbnb my home</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </>
+          ) : (
+            <>
+              <MenuItem onClick={loginModal.onOpen}>Login</MenuItem>
+              <MenuItem onClick={registerModal.onOpen}>Sign up</MenuItem>
+            </>
+          )}
         </MenuList>
       </CSSTransition>
     </UserMenuContainer>

@@ -1,17 +1,19 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { User } from 'next-auth';
 
 import { Container } from '@/app/components/container/Container';
-import {
-  Logo,
-  NavbarContainer,
-  NavbarWrapper,
-} from '@/app/components/navbar/styles';
 import { Search } from '@/app/components/search/Search';
 import { UserMenu } from '@/app/components/userMenu/UserMenu';
 
-export const Navbar = () => {
+import { Logo, NavbarContainer, NavbarWrapper } from './styles';
+
+type NavbarProps = {
+  currentUser: User | null;
+};
+
+export const Navbar = ({ currentUser }: NavbarProps) => {
   const router = useRouter();
 
   return (
@@ -20,7 +22,7 @@ export const Navbar = () => {
         <NavbarWrapper>
           <Logo />
           <Search />
-          <UserMenu />
+          <UserMenu currentUser={currentUser} />
         </NavbarWrapper>
       </Container>
     </NavbarContainer>
