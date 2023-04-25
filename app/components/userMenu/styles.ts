@@ -77,3 +77,8 @@ export const MenuItem = styled.li`
     background-color: ${(props) => props.theme.color.menuText};
   }
 `;
+
+export const Divider = styled.li`
+  height: 1px;
+  background-color: ${(props) => props.theme.color.menuBorder};
+`;

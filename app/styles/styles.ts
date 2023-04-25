@@ -1,15 +1,15 @@
 const color = {
-  primary: '#fff',
-  secondary: '#000',
+  primary: '#ffffff',
+  secondary: '#000000',
   tertiary: '#9f9f9f',
-  complementary: 'rgb(244 63 94)',
+  complementary: '#f43f5eff',
   searchBorder: '#d3d3d3',
   menuBorder: '#d3d3d3',
   menuText: '#eaeaea',
-  modalBG: 'rgba(38, 38, 38, 0.7)',
+  modalBG: '#262626b2',
   modalDivider: '#e5e5e5',
-  inputBorder: 'rgb(212 212 212)',
-  label: 'rgb(161 161 170)',
+  inputBorder: '#d4d4d4ff',
+  label: '#a1a1aaff',
 };
 
 const fontSize = {

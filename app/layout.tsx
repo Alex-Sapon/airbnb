@@ -14,7 +14,6 @@ export const metadata = {
 
 const font = Nunito({
   subsets: ['latin'],
-  preload: true,
 });
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {

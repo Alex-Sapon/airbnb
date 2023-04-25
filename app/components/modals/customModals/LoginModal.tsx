@@ -100,14 +100,14 @@ export const LoginModal = () => {
       <Divider />
       <Button
         label="Continue with Google"
-        onClick={() => {}}
+        onClick={() => signIn('google')}
         icon={FcGoogle}
         size={22}
         outline
       />
       <Button
         label="Continue with Github"
-        onClick={() => {}}
+        onClick={() => signIn('github')}
         icon={AiFillGithub}
         size={22}
         outline

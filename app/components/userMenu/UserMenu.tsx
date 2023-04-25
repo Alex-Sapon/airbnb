@@ -2,24 +2,25 @@
 
 import { useRef, useState } from 'react';
 
-import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CSSTransition } from 'react-transition-group';
 
 import { Avatar } from '@/app/components/avatar/Avatar';
-import { useRegisterModal, useLoginModal } from '@/app/hooks';
+import { useLoginModal, useRegisterModal } from '@/app/hooks';
+import { SafeUser } from '@/app/types';
 
 import {
-  UserMenuContainer,
-  Text,
   AvatarWrapper,
-  MenuList,
+  Divider,
   MenuItem,
+  MenuList,
+  Text,
+  UserMenuContainer,
 } from './styles';
 
 type UserMenuProps = {
-  currentUser: User | null;
+  currentUser: SafeUser | null;
 };
 
 export const UserMenu = ({ currentUser }: UserMenuProps) => {
@@ -39,7 +40,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
       <Text>Airbnb your home</Text>
       <AvatarWrapper onClick={toggleIsOpen}>
         <AiOutlineMenu />
-        <Avatar />
+        <Avatar image={currentUser?.image} />
       </AvatarWrapper>
       <CSSTransition
         nodeRef={nodeRef}
@@ -56,6 +57,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
               <MenuItem onClick={() => {}}>My reservations</MenuItem>
               <MenuItem onClick={() => {}}>My properties</MenuItem>
               <MenuItem onClick={() => {}}>Airbnb my home</MenuItem>
+              <Divider />
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </>
           ) : (

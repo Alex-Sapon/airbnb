@@ -2,6 +2,10 @@
 
 import { ImageStyled } from '@/app/components/avatar/styles';
 
-export const Avatar = () => {
-  return <ImageStyled />;
+type AvatarProps = {
+  image: string | null | undefined;
+};
+
+export const Avatar = ({ image }: AvatarProps) => {
+  return <ImageStyled avatar={image} />;
 };

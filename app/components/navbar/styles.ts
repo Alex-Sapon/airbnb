@@ -19,7 +19,7 @@ export const NavbarWrapper = styled.div`
 
 export const Logo = styled(Image).attrs({
   src: '/images/logo.png',
-  alt: 'Logo',
+  alt: 'Avatar',
   width: 70,
   height: 70,
   priority: true,

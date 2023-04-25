@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AiFillGithub } from 'react-icons/ai';
@@ -103,14 +104,14 @@ export const RegisterModal = () => {
       <Divider />
       <Button
         label="Continue with Google"
-        onClick={() => {}}
+        onClick={() => signIn('google')}
         icon={FcGoogle}
         size={22}
         outline
       />
       <Button
         label="Continue with Github"
-        onClick={() => {}}
+        onClick={() => signIn('github')}
         icon={AiFillGithub}
         size={22}
         outline
