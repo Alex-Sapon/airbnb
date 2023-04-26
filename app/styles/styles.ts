@@ -10,6 +10,8 @@ const color = {
   modalDivider: '#e5e5e5',
   inputBorder: '#d4d4d4ff',
   label: '#a1a1aaff',
+  categoriesPrimary: '#737373',
+  categoriesSecondary: '#262626',
 };
 
 const fontSize = {
