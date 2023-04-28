@@ -11,6 +11,16 @@ export const Text = styled.div`
   display: none;
   font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.bold};
+  transition: all 0.3s ease;
+  border-radius: 500px;
+  padding: 9px;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme.color.menuBorder};
+    box-shadow: ${(props) => props.theme.shadow.menu};
+  }
 
   @media (${(props) => props.theme.device.tablet}) {
     display: block;
@@ -22,7 +32,7 @@ export const AvatarWrapper = styled.div`
   align-items: center;
   column-gap: 8px;
   cursor: pointer;
-  padding: 12px;
+  padding: 10px 15px;
   border-radius: 500px;
   transition: all 0.3s ease;
   border: 1px solid ${(props) => props.theme.color.menuBorder};

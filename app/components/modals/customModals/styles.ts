@@ -40,3 +40,30 @@ export const Login = styled.span`
   color: ${(props) => props.theme.color.secondary};
   font-weight: ${(props) => props.theme.fontWeight.bold};
 `;
+
+export const CategoryList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 5px;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.color.tertiary};
+    border-radius: 20px;
+  }
+
+  @media (${(props) => props.theme.device.mobileL}) {
+    max-height: 40vh;
+    grid-template-columns: 1fr 1fr;
+  }
+`;

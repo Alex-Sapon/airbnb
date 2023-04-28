@@ -49,4 +49,5 @@ export const CategoriesBoxWrapper = styled.div`
 
 export const Label = styled.div`
   font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-weight: ${(props) => props.theme.fontWeight.medium};
 `;

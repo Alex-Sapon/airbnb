@@ -8,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { Avatar } from '@/app/components/avatar/Avatar';
 import { useLoginModal, useRegisterModal } from '@/app/hooks';
+import { useRentModal } from '@/app/hooks/useRentModal';
 import { SafeUser } from '@/app/types';
 
 import {
@@ -28,6 +29,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
 
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const nodeRef = useRef(null);
 
@@ -35,9 +37,17 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
 
   const handleLogout = () => signOut();
 
+  const handleRentModal = () => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    return rentModal.onOpen();
+  };
+
   return (
     <UserMenuContainer>
-      <Text>Airbnb your home</Text>
+      <Text onClick={handleRentModal}>Airbnb your home</Text>
       <AvatarWrapper onClick={toggleIsOpen}>
         <AiOutlineMenu />
         <Avatar image={currentUser?.image} />
@@ -56,7 +66,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
               <MenuItem onClick={() => {}}>My favorites</MenuItem>
               <MenuItem onClick={() => {}}>My reservations</MenuItem>
               <MenuItem onClick={() => {}}>My properties</MenuItem>
-              <MenuItem onClick={() => {}}>Airbnb my home</MenuItem>
+              <MenuItem onClick={rentModal.onOpen}>Airbnb my home</MenuItem>
               <Divider />
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </>

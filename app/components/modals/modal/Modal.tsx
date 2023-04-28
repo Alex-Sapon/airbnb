@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import { Button } from '@/app/components/button/Button';
+
 import {
   Body,
   Buttons,
@@ -15,19 +16,19 @@ import {
   ModalContainer,
   ModalWrapper,
   Title,
-} from '@/app/components/modals/modal/styles';
+} from './styles';
 
 type ModalProps = {
   isOpen?: boolean;
   onClose: () => void;
   onSubmit: () => void;
   title?: string;
-  body?: React.ReactElement;
-  footer?: React.ReactElement;
-  actionLabel: string;
   disabled: boolean;
+  actionLabel: string;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
+  body?: React.ReactElement;
+  footer?: React.ReactElement;
 };
 
 export const Modal = ({
