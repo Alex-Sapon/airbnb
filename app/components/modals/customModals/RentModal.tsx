@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import { CategoryInput } from '@/app/components/inputs/categoryInput/CategoryInput';
+import { CountrySelect } from '@/app/components/inputs/countrySelect/CountrySelect';
 import { Modal } from '@/app/components/modals/modal/Modal';
 import { categories } from '@/app/constants/categories';
 import { STEPS } from '@/app/enums/steps';
@@ -14,6 +15,8 @@ import { CategoryList, Container, Heading, Subtitle, Title } from './styles';
 
 export const RentModal = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const rentModal = useRentModal();
 
@@ -71,7 +74,7 @@ export const RentModal = () => {
     return 'Back';
   };
 
-  const rentBody = (
+  let rentBody = (
     <Container>
       <Heading>
         <Title>Which of these best describe your place?</Title>
@@ -91,17 +94,29 @@ export const RentModal = () => {
     </Container>
   );
 
+  if (step === STEPS.LOCATION) {
+    rentBody = (
+      <Container>
+        <Heading>
+          <Title>Where is your place located?</Title>
+          <Subtitle>Help guest find you!</Subtitle>
+        </Heading>
+        <CountrySelect />
+      </Container>
+    );
+  }
+
   return (
     <Modal
       title="Airbnb your home!"
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={rentModal.onClose}
+      onSubmit={onNext}
       actionLabel={actionLabel()}
       secondaryActionLabel={secondaryActionLabel() as string}
       secondaryAction={step === STEPS.CATEGORY ? null : onBack}
       body={rentBody}
-      disabled={false}
+      disabled={isLoading}
     />
   );
 };
