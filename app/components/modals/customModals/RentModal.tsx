@@ -1,15 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
+import dynamic from 'next/dynamic';
 import { FieldValues, useForm } from 'react-hook-form';
 
-import { CategoryInput } from '@/app/components/inputs/categoryInput/CategoryInput';
-import { CountrySelect } from '@/app/components/inputs/countrySelect/CountrySelect';
+import { CategoryInput, CountrySelect } from '@/app/components/inputs';
+import { CountrySelectValue } from '@/app/components/inputs/countrySelect/CountrySelect';
 import { Modal } from '@/app/components/modals/modal/Modal';
 import { categories } from '@/app/constants/categories';
 import { STEPS } from '@/app/enums/steps';
-import { useRentModal } from '@/app/hooks/useRentModal';
+import { useRentModal } from '@/app/hooks';
 
 import { CategoryList, Container, Heading, Subtitle, Title } from './styles';
 
@@ -40,9 +41,20 @@ export const RentModal = () => {
     },
   });
 
+  // @ts-ignore
   const category = watch('category');
+  // @ts-ignore
+  const location = watch('location');
 
-  const setCustomValue = (id: string, value: string) => {
+  const Map = useMemo(
+    () =>
+      dynamic(() => import('@/app/components/map/Map'), {
+        ssr: false,
+      }),
+    [location]
+  );
+
+  const setCustomValue = (id: string, value: CountrySelectValue | string) => {
     setValue(id, value, {
       shouldValidate: true,
       shouldDirty: true,
@@ -101,7 +113,11 @@ export const RentModal = () => {
           <Title>Where is your place located?</Title>
           <Subtitle>Help guest find you!</Subtitle>
         </Heading>
-        <CountrySelect />
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue('location', value)}
+        />
+        <Map center={location?.latlng} />
       </Container>
     );
   }

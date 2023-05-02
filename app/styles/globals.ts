@@ -21,4 +21,11 @@ export const GlobalStyles = createGlobalStyle`
     html, body :root {
       height: 100%;
     }
+    
+    .leaflet-bottom,
+    .leaflet-control,
+    .leaflet-pane,
+    .leaflet-top {
+      z-index: 0 !important;
+    }
 `;

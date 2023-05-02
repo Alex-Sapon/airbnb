@@ -12,8 +12,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Button } from '@/app/components/button/Button';
 import { Input } from '@/app/components/inputs';
 import { Modal } from '@/app/components/modals/modal/Modal';
-import { useLoginModal } from '@/app/hooks';
-import { useRegisterModal } from '@/app/hooks/useRegisterModal';
+import { useLoginModal, useRegisterModal } from '@/app/hooks';
 
 import {
   Container,

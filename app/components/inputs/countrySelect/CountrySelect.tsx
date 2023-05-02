@@ -1,11 +1,14 @@
 'use client';
 
-import { useCountry } from '@/app/hooks/useCountry';
+import { FlagIcon } from 'react-flag-kit';
 
-import { CustomSelect } from './styles';
+import { useCountry } from '@/app/hooks';
+
+import { CustomSelect, CustomOption, Label, Region } from './styles';
 
 export type CountrySelectValue = {
   value: string;
+  label: string;
   flag: string;
   latlng: string[];
   region: string;
@@ -19,9 +22,17 @@ type CountrySelectProps = {
 export const CountrySelect = ({ value, onChange }: CountrySelectProps) => {
   const { getAll } = useCountry();
 
-  const handleChange = (country: CountrySelectValue) => {
-    onChange(country);
+  const handleChange = (countryValue: CountrySelectValue) => {
+    onChange(countryValue);
   };
+
+  const formattedOptionLabel = (option) => (
+    <CustomOption>
+      <FlagIcon code={option.value} size={14} />
+      <Label>{option.label},</Label>
+      <Region>{option.region}</Region>
+    </CustomOption>
+  );
 
   return (
     <CustomSelect
@@ -30,6 +41,7 @@ export const CountrySelect = ({ value, onChange }: CountrySelectProps) => {
       options={getAll()}
       value={value}
       onChange={handleChange}
+      formatOptionLabel={formattedOptionLabel}
     />
   );
 };
