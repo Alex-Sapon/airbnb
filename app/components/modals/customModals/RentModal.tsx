@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { FieldValues, useForm } from 'react-hook-form';
 
+import { Counter } from '@/app/components/counter/Counter';
 import { CategoryInput, CountrySelect } from '@/app/components/inputs';
 import { CountrySelectValue } from '@/app/components/inputs/countrySelect/CountrySelect';
 import { Modal } from '@/app/components/modals/modal/Modal';
@@ -12,7 +13,14 @@ import { categories } from '@/app/constants/categories';
 import { STEPS } from '@/app/enums/steps';
 import { useRentModal } from '@/app/hooks';
 
-import { CategoryList, Container, Heading, Subtitle, Title } from './styles';
+import {
+  CategoryList,
+  Container,
+  Divider,
+  Heading,
+  Subtitle,
+  Title,
+} from './styles';
 
 export const RentModal = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
@@ -45,16 +53,21 @@ export const RentModal = () => {
   const category = watch('category');
   // @ts-ignore
   const location = watch('location');
+  // @ts-ignore
+  const guestCount = watch('guestCount');
+  // @ts-ignore
+  const roomCount = watch('roomCount');
+  // @ts-ignore
+  const bathroomCount = watch('bathroomCount');
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import('@/app/components/map/Map'), {
-        ssr: false,
-      }),
-    [location]
-  );
+  const Map = useMemo(() => {
+    return dynamic(() => import('@/app/components/map/Map'), { ssr: false });
+  }, [location]);
 
-  const setCustomValue = (id: string, value: CountrySelectValue | string) => {
+  const setCustomValue = (
+    id: string,
+    value: CountrySelectValue | string | number
+  ) => {
     setValue(id, value, {
       shouldValidate: true,
       shouldDirty: true,
@@ -118,6 +131,37 @@ export const RentModal = () => {
           onChange={(value) => setCustomValue('location', value)}
         />
         <Map center={location?.latlng} />
+      </Container>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    rentBody = (
+      <Container>
+        <Heading>
+          <Title>Share some basic about your place</Title>
+          <Subtitle>What amenities do you have?</Subtitle>
+        </Heading>
+        <Counter
+          title="Guests"
+          subtitle="How many guests do you allow?"
+          value={guestCount}
+          onChange={(value) => setCustomValue('guestCount', value)}
+        />
+        <Divider />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you have?"
+          value={roomCount}
+          onChange={(value) => setCustomValue('roomCount', value)}
+        />
+        <Divider />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have?"
+          value={bathroomCount}
+          onChange={(value) => setCustomValue('bathroomCount', value)}
+        />
       </Container>
     );
   }

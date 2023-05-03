@@ -3,5 +3,5 @@ import styled from 'styled-components';
 
 export const MapContainerStyled = styled(MapContainer)`
   height: 35vh;
-  border-radius: 5px;
+  border-radius: 7px;
 `;
