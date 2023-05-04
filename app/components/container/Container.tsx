@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { ContainerStyled } from '@/app/components/container/styles';
+import { ContainerStyled } from './styles';
 
 type ContainerProps = {
   children: React.ReactNode;

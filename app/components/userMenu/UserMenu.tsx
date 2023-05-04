@@ -7,8 +7,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { CSSTransition } from 'react-transition-group';
 
 import { Avatar } from '@/app/components/avatar/Avatar';
-import { useLoginModal, useRegisterModal } from '@/app/hooks';
-import { useRentModal } from '@/app/hooks/useRentModal';
+import { useLoginModal, useRegisterModal, useRentModal } from '@/app/hooks';
 import { SafeUser } from '@/app/types';
 
 import {

@@ -1,6 +1,6 @@
 'use client';
 
-import { ImageStyled } from '@/app/components/avatar/styles';
+import { ImageStyled } from './styles';
 
 type AvatarProps = {
   image: string | null | undefined;
