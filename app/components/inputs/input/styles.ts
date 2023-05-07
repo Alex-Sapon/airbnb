@@ -50,15 +50,3 @@ export const Label = styled.label`
     return value ? 'translateY(-120%)' : 'translateY(-50%)';
   }};
 `;
-
-export const Icon = styled(BiDollar).attrs({
-  size: 24,
-})`
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  color: ${({ theme, errors }) => {
-    return errors ? theme.color.complementary : theme.color.label;
-  }};
-`;

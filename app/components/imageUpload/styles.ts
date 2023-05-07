@@ -6,7 +6,7 @@ export const ImageUploadWrapper = styled.div`
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px dashed ${(props) => props.theme.color.tertiary};
-  color: rgb(82 82 82);
+  color: ${(props) => props.theme.color.imageUpload};
   padding: 10px;
   display: flex;
   align-items: center;

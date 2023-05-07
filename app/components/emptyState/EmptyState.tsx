@@ -1,0 +1,35 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
+import { Button } from '@/app/components/button/Button';
+
+import { EmptyStateWrapper, Title, Subtitle } from './styles';
+
+type EmptyStateProps = {
+  title?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  showReset: boolean;
+};
+
+export const EmptyState = ({
+  title = 'No exact matches',
+  subtitle = 'Try changing or removing some of your filters',
+  buttonLabel = 'Remove all filters',
+  showReset,
+}: EmptyStateProps) => {
+  const router = useRouter();
+
+  const handleReset = () => router.push('/');
+
+  return (
+    <EmptyStateWrapper>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+      {showReset && (
+        <Button outline label={buttonLabel || ''} onClick={handleReset} />
+      )}
+    </EmptyStateWrapper>
+  );
+};

@@ -4,19 +4,13 @@ import { ChangeEvent, useState } from 'react';
 
 import { FieldValues, UseFormRegister, FieldErrors } from 'react-hook-form';
 
-import {
-  InputWrapper,
-  InputElement,
-  Label,
-  Icon,
-} from '@/app/components/inputs/input/styles';
+import { InputWrapper, InputElement, Label } from './styles';
 
 type InputProps = {
   id: string;
   label: string;
   type?: string;
   disabled?: boolean;
-  formatPrice?: boolean;
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
@@ -27,7 +21,6 @@ export const Input = ({
   label,
   type = 'text',
   disabled,
-  formatPrice,
   required,
   register,
   errors,
@@ -40,14 +33,12 @@ export const Input = ({
 
   return (
     <InputWrapper>
-      {formatPrice && <Icon errors={errors[id]} />}
       <InputElement
         id={id}
         disabled={disabled}
         {...register(id, { required })}
         placeholder=" "
         type={type}
-        formatPrice={formatPrice}
         errors={errors[id]}
         onChange={handleChange}
       />

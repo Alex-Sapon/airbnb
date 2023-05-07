@@ -12,6 +12,7 @@ const color = {
   label: '#a1a1aaff',
   categoriesPrimary: '#737373',
   categoriesSecondary: '#262626',
+  imageUpload: '#525252ff',
 };
 
 const fontSize = {
