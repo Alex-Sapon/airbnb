@@ -1,24 +1,16 @@
-'use client';
-
-import { getListings } from '@/app/actions';
-import { Container } from '@/app/components/container/Container';
+import { getListings } from '@/app/actions/getListings';
 import { EmptyState } from '@/app/components/emptyState/EmptyState';
-import { ListingList } from '@/app/components/listings/styles';
+
+import { ListingList } from './components/listings/ListingList';
 
 const Home = async () => {
-  const listings = await getListings();
+  const listings: any = await getListings();
 
-  if (listings.length === 0) {
+  if (!listings || !listings.length) {
     return <EmptyState showReset />;
   }
 
-  return (
-    <Container>
-      <ListingList>
-        <div>Listings</div>
-      </ListingList>
-    </Container>
-  );
+  return <ListingList listings={listings} />;
 };
 
 export default Home;

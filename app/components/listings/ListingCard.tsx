@@ -12,7 +12,7 @@ type ListingCardProps = {
 export const ListingCard = ({ data, currentUser }: ListingCardProps) => {
   return (
     <ListingCardWrapper>
-      <div />
+      <div>{data.title}</div>
     </ListingCardWrapper>
   );
 };

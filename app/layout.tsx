@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import { Nunito } from 'next/font/google';
 
@@ -16,7 +16,7 @@ const font = Nunito({
   subsets: ['latin'],
 });
 
-const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: { children: ReactNode }) => {
   const currentUser = await getCurrentUser();
 
   return (
@@ -26,6 +26,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
           <RentModal />
           <LoginModal />
           <RegisterModal />
+          {/* @ts-expect-error Server Component */}
           <Navbar currentUser={currentUser} />
           {children}
         </Layout>

@@ -12,7 +12,7 @@ export const getListings = async () => {
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 };

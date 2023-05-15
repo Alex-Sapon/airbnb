@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ListingList = styled.div`
+export const ListingListWrapper = styled.div`
   padding-top: 30px;
   display: grid;
   gap: 20px;

@@ -1,4 +1,3 @@
-import { BiDollar } from 'react-icons/bi';
 import styled from 'styled-components';
 
 export const InputWrapper = styled.div`
@@ -6,9 +5,9 @@ export const InputWrapper = styled.div`
   position: relative;
 `;
 
-export const InputElement = styled.input`
+export const InputElement = styled.input<{ errors: string }>`
   width: 100%;
-  padding: 20px 10px 10px ${({ formatPrice }) => (formatPrice ? 20 : 10)}px;
+  padding: 20px 10px 10px 10px;
   border: 2px solid
     ${({ theme, errors }) => {
       return errors ? theme.color.complementary : theme.color.inputBorder;
@@ -34,7 +33,7 @@ export const InputElement = styled.input`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled.label<{ value: boolean; errors: string }>`
   user-select: none;
   transition: all 0.2s ease;
   position: absolute;
