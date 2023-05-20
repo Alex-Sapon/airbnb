@@ -5,7 +5,7 @@ export const ListingListWrapper = styled.div`
   padding-top: 30px;
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 `;
 
 export const ListingCardWrapper = styled.div`

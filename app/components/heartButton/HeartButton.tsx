@@ -13,7 +13,7 @@ export const HeartButton = ({ listingId, currentUser }: HeartButtonProps) => {
   const hasFavorite = false;
 
   return (
-    <HeartButtonWrapper className="heart-button">
+    <HeartButtonWrapper className="heart-button" onClick={() => {}}>
       <HeartOutline />
       <HeartFill hasFavorite={hasFavorite} />
     </HeartButtonWrapper>

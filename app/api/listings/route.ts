@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return new Response('Unauthorized', { status: 401 });
+    return NextResponse.error();
   }
 
   const body = await request.json();
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
   Object.keys(body).forEach((value) => {
     if (!body[value]) {
-      return new Response('Error', { status: 400 });
+      return NextResponse.error();
     }
     return value;
   });
