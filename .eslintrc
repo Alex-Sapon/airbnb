@@ -21,6 +21,7 @@
     "prettier"
   ],
   "rules": {
+    "consistent-return": "off",
     "no-underscore-dangle": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",

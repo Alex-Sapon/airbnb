@@ -1,5 +1,4 @@
-import { Listing } from '@prisma/client';
-import { User } from 'next-auth';
+import { Listing, User } from '@prisma/client';
 
 export type SafeUser = Omit<
   User,
