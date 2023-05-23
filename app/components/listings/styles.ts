@@ -63,3 +63,7 @@ export const Subtitle = styled.div`
 export const Night = styled.span`
   font-weight: ${(props) => props.theme.fontWeight.light};
 `;
+
+export const ListingPageWrapper = styled.div`
+  padding: 100px 0 10px 0;
+`;
