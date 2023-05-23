@@ -22,7 +22,7 @@ export const CategoriesWrapper = styled.div`
   }
 `;
 
-export const CategoriesBoxWrapper = styled.div`
+export const CategoriesBoxWrapper = styled.div<{ selected: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;

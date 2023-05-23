@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
@@ -8,7 +8,7 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 export const StyledComponentsRegistry = ({
   children,
 }: {
-  children: React.ReactNode;
+  children: JSX.Element;
 }) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 

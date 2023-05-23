@@ -9,9 +9,14 @@ import { CategoriesBoxWrapper, Label } from './styles';
 type CategoriesBoxProps = {
   label: string;
   icon: IconType;
+  selected: boolean;
 };
 
-export const CategoriesBox = ({ label, icon: Icon }: CategoriesBoxProps) => {
+export const CategoriesBox = ({
+  label,
+  icon: Icon,
+  selected,
+}: CategoriesBoxProps) => {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -22,7 +27,7 @@ export const CategoriesBox = ({ label, icon: Icon }: CategoriesBoxProps) => {
       currentQuery = queryString.parse(params.toString());
     }
 
-    const updateQuery = {
+    const updateQuery: { category?: string } = {
       ...currentQuery,
       category: label,
     };
@@ -40,10 +45,7 @@ export const CategoriesBox = ({ label, icon: Icon }: CategoriesBoxProps) => {
   };
 
   return (
-    <CategoriesBoxWrapper
-      selected={params?.get('category') === label}
-      onClick={handleClick}
-    >
+    <CategoriesBoxWrapper selected={selected} onClick={handleClick}>
       <Icon size={26} />
       <Label>{label}</Label>
     </CategoriesBoxWrapper>

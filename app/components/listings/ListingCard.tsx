@@ -72,7 +72,7 @@ export const ListingCard = ({
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   };
 
-  const handleDetailListing = () => router.push(`/listing/${data.id}`);
+  const handleDetailListing = () => router.push(`/listings/${data.id}`);
 
   return (
     <ListingCardWrapper onClick={handleDetailListing}>
