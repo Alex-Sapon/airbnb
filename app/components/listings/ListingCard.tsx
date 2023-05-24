@@ -15,7 +15,7 @@ import { formatCurrency } from '@/app/utilities/formatCurrency';
 import {
   ListingCardWrapper,
   ImageWrapper,
-  ImageStyled,
+  ImageCard,
   Price,
   Title,
   Subtitle,
@@ -50,9 +50,9 @@ export const ListingCard = ({
   const handleCancel = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
-    if (disabled) return;
+    if (disabled || !actionId) return;
 
-    onAction?.(data.id);
+    onAction?.(actionId);
   };
 
   const price = () => {
@@ -77,7 +77,7 @@ export const ListingCard = ({
   return (
     <ListingCardWrapper onClick={handleDetailListing}>
       <ImageWrapper>
-        <ImageStyled src={data.imageSrc} />
+        <ImageCard src={data.imageSrc} />
         <HeartButton listingId={data.id} currentUser={currentUser} />
       </ImageWrapper>
       <Title>

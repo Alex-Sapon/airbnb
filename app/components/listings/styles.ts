@@ -30,9 +30,9 @@ export const ImageWrapper = styled.div`
   margin-bottom: 5px;
 `;
 
-export const ImageStyled = styled(Image).attrs({
+export const ImageCard = styled(Image).attrs({
   fill: true,
-  alt: 'Listing',
+  alt: 'ListingCard',
 })`
   object-fit: cover;
   width: 100%;
@@ -52,11 +52,14 @@ export const Price = styled.div`
 `;
 
 export const Title = styled.div`
-  font-weight: ${(props) => props.theme.fontWeight.semiBold};
+  font-size: ${(props) => props.theme.fontSize.text_lg};
+  font-weight: ${(props) => props.theme.fontWeight.bold};
 `;
 
 export const Subtitle = styled.div`
+  margin: 5px 0 20px 0;
   color: ${(props) => props.theme.color.tertiary};
+  font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.light};
 `;
 
@@ -66,4 +69,20 @@ export const Night = styled.span`
 
 export const ListingPageWrapper = styled.div`
   padding: 100px 0 10px 0;
+`;
+
+export const ListingHeadWrapper = styled.div``;
+
+export const ImageHeadWrapper = styled.div`
+  height: 60vh;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const ImageHead = styled(Image).attrs({
+  fill: true,
+  alt: 'ListingHead',
+})`
+  object-fit: cover;
 `;

@@ -2,12 +2,11 @@
 
 import { Reservation } from '@prisma/client';
 
-import {
-  ListingPageWrapper,
-  Title,
-  Subtitle,
-} from '@/app/components/listings/styles';
+import { ListingHead } from '@/app/components/listings/ListingHead';
+import { categories } from '@/app/constants';
 import { SafeListing, SafeUser } from '@/app/types';
+
+import { ListingPageWrapper } from './styles';
 
 type ListingPageClientProps = {
   reservation?: Reservation[];
@@ -20,10 +19,19 @@ export const ListingClient = ({
   listing,
   currentUser,
 }: ListingPageClientProps) => {
+  const { id, title, locationValue, imageSrc } = listing;
+
+  const category = categories.find(({ label }) => label === listing.category);
+
   return (
     <ListingPageWrapper>
-      <Title>{listing.title}</Title>
-      <Subtitle>{listing.description}</Subtitle>
+      <ListingHead
+        id={id}
+        title={title}
+        locationValue={locationValue}
+        imageSrc={imageSrc}
+        currentUser={currentUser}
+      />
     </ListingPageWrapper>
   );
 };
