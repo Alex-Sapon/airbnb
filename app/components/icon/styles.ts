@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-type IconStyledProps = {
-  size: string | number;
-};
-
-export const IconStyled = styled.span<IconStyledProps>`
+export const IconStyled = styled.span<{ size: string | number }>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   position: absolute;

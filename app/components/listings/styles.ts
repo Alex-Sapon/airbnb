@@ -12,7 +12,6 @@ export const ListingCardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
 
   &.heart-wrapper {
     position: absolute;
@@ -57,10 +56,10 @@ export const Title = styled.div`
 `;
 
 export const Subtitle = styled.div`
-  margin: 5px 0 20px 0;
+  margin: 5px 0;
   color: ${(props) => props.theme.color.tertiary};
   font-size: ${(props) => props.theme.fontSize.text_sm};
-  font-weight: ${(props) => props.theme.fontWeight.light};
+  font-weight: ${(props) => props.theme.fontWeight.regular};
 `;
 
 export const Night = styled.span`
@@ -78,6 +77,7 @@ export const ImageHeadWrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin: 30px 0;
 `;
 
 export const ImageHead = styled(Image).attrs({
@@ -86,3 +86,48 @@ export const ImageHead = styled(Image).attrs({
 })`
   object-fit: cover;
 `;
+
+export const ListingInfoWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+`;
+
+export const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+`;
+
+export const Hosted = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+`;
+
+export const HostedName = styled(Title)`
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+`;
+
+export const HostedDetails = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+`;
+
+export const ListingCategoryWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+`;
+
+export const CategoryBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CategoryLabel = styled(Title)``;
+
+export const CategoryDesc = styled(Subtitle)``;

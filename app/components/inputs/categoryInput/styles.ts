@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CategoryInputWrapper = styled.li`
+export const CategoryInputWrapper = styled.li<{ selected: boolean }>`
   cursor: pointer;
   padding: 10px;
   transition: all 0.2s ease;

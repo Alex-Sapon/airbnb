@@ -19,7 +19,7 @@ leaflet.Icon.Default.mergeOptions({
 });
 
 type MapProps = {
-  center: string[];
+  center?: number[];
 };
 
 const Map = ({ center }: MapProps) => {

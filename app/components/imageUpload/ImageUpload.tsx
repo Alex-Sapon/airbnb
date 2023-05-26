@@ -8,7 +8,7 @@ import { uploadPreset } from '@/app/constants';
 import { ImageStyled, ImageUploadWrapper, ImageWrapper, Text } from './styles';
 
 declare global {
-  let cloudinary;
+  const cloudinary: unknown;
 }
 
 type ImageUploadProps = {
@@ -17,7 +17,7 @@ type ImageUploadProps = {
 };
 
 export const ImageUpload = ({ value, onChange }: ImageUploadProps) => {
-  const handleUpload = (result) => {
+  const handleUpload = (result: any) => {
     onChange(result.info.secure_url);
   };
 
