@@ -10,13 +10,15 @@ import { Divider } from '@/app/styles/divider';
 import { SafeUser } from '@/app/types';
 
 import {
-  LeftSide,
-  ListingInfoWrapper,
-  HostedName,
+  Description,
   Hosted,
-  Subtitle,
   HostedDetails,
+  HostedName,
+  ListingInfoWrapper,
+  Subtitle,
 } from './styles';
+
+const Map = dynamic(() => import('@/app/components/map/Map'));
 
 type ListingInfoProps = {
   user: SafeUser;
@@ -27,8 +29,6 @@ type ListingInfoProps = {
   category: { icon: IconType; label: string; description: string } | undefined;
   locationValue: string;
 };
-
-const Map = dynamic(() => import('@/app/components/map/Map'));
 
 export const ListingInfo = ({
   user,
@@ -45,31 +45,29 @@ export const ListingInfo = ({
 
   return (
     <ListingInfoWrapper>
-      <LeftSide>
-        <Hosted>
-          <HostedName>
-            Hosted by {user?.name || '...'}
-            <Avatar image={user?.image} />
-          </HostedName>
-          <HostedDetails>
-            <Subtitle>{guestCount} guests</Subtitle>
-            <Subtitle>{roomCount} rooms</Subtitle>
-            <Subtitle>{bathroomsCount} bathrooms</Subtitle>
-          </HostedDetails>
-        </Hosted>
-        <Divider />
-        {category && (
-          <ListingCategory
-            icon={category.icon}
-            label={category.label}
-            description={category.description}
-          />
-        )}
-        <Divider />
-        <div>{description}</div>
-        <Divider />
-        <Map center={coordinates} />
-      </LeftSide>
+      <Hosted>
+        <HostedName>
+          Hosted by {user?.name || '...'}
+          <Avatar image={user?.image} />
+        </HostedName>
+        <HostedDetails>
+          <Subtitle>{guestCount} guests</Subtitle>
+          <Subtitle>{roomCount} rooms</Subtitle>
+          <Subtitle>{bathroomsCount} bathrooms</Subtitle>
+        </HostedDetails>
+      </Hosted>
+      <Divider />
+      {category && (
+        <ListingCategory
+          icon={category.icon}
+          label={category.label}
+          description={category.description}
+        />
+      )}
+      <Divider />
+      <Description>{description}</Description>
+      <Divider />
+      <Map center={coordinates} />
     </ListingInfoWrapper>
   );
 };

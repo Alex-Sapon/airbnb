@@ -56,7 +56,6 @@ export const Title = styled.div`
 `;
 
 export const Subtitle = styled.div`
-  margin: 5px 0;
   color: ${(props) => props.theme.color.tertiary};
   font-size: ${(props) => props.theme.fontSize.text_sm};
   font-weight: ${(props) => props.theme.fontWeight.regular};
@@ -67,17 +66,22 @@ export const Night = styled.span`
 `;
 
 export const ListingPageWrapper = styled.div`
-  padding: 100px 0 10px 0;
+  padding: 100px 0 40px 0;
 `;
 
+// ListingHead
 export const ListingHeadWrapper = styled.div``;
 
 export const ImageHeadWrapper = styled.div`
-  height: 60vh;
+  height: 40vh;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   margin: 30px 0;
+
+  @media (${(props) => props.theme.device.tablet}) {
+    height: 60vh;
+  }
 `;
 
 export const ImageHead = styled(Image).attrs({
@@ -87,13 +91,19 @@ export const ImageHead = styled(Image).attrs({
   object-fit: cover;
 `;
 
-export const ListingInfoWrapper = styled.div`
+// ListingBody
+export const ListingBody = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 32px;
+
+  @media (${(props) => props.theme.device.tablet}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
-export const LeftSide = styled.div`
+// ListingInfo
+export const ListingInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -121,6 +131,10 @@ export const ListingCategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 15px;
+
+  & svg {
+    color: ${(props) => props.theme.color.categoriesPrimary};
+  }
 `;
 
 export const CategoryBlock = styled.div`
@@ -128,6 +142,17 @@ export const CategoryBlock = styled.div`
   flex-direction: column;
 `;
 
-export const CategoryLabel = styled(Title)``;
+export const Description = styled.div`
+  font-size: ${(props) => props.theme.fontSize.text_base};
+`;
 
-export const CategoryDesc = styled(Subtitle)``;
+// ListingReservation
+export const ListingReservationWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  border: 1px solid ${(props) => props.theme.color.tertiary};
+  border-radius: 7px;
+  padding: 15px;
+  height: max-content;
+`;

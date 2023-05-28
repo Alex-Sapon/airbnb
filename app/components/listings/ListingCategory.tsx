@@ -5,8 +5,8 @@ import { IconType } from 'react-icons';
 import {
   ListingCategoryWrapper,
   CategoryBlock,
-  CategoryLabel,
-  CategoryDesc,
+  Subtitle,
+  Title,
 } from './styles';
 
 type ListingCategoryProps = {
@@ -22,10 +22,10 @@ export const ListingCategory = ({
 }: ListingCategoryProps) => {
   return (
     <ListingCategoryWrapper>
-      <Icon size={40} style={{ color: '737373ff' }} />
+      <Icon size={40} />
       <CategoryBlock>
-        <CategoryLabel>{label}</CategoryLabel>
-        <CategoryDesc>{description}</CategoryDesc>
+        <Title>{label}</Title>
+        <Subtitle>{description}</Subtitle>
       </CategoryBlock>
     </ListingCategoryWrapper>
   );
