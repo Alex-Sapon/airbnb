@@ -38,6 +38,7 @@ export const ListingClient = ({
   const {
     id,
     title,
+    price,
     locationValue,
     imageSrc,
     roomCount,
@@ -47,7 +48,7 @@ export const ListingClient = ({
   } = listing;
   const [isLoading, setIsLoading] = useState(false);
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
-  const [totalPrice, setTotalPrice] = useState(listing.price);
+  const [totalPrice, setTotalPrice] = useState(price);
 
   const router = useRouter();
   const loginModal = useLoginModal();
@@ -104,13 +105,13 @@ export const ListingClient = ({
     if (dateRange.startDate && dateRange.endDate) {
       const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate);
 
-      if (dayCount && listing.price) {
-        setTotalPrice(dayCount * listing.price);
+      if (dayCount && price) {
+        setTotalPrice(dayCount * price);
       } else {
-        setTotalPrice(listing.price);
+        setTotalPrice(price);
       }
     }
-  }, [dateRange.startDate, dateRange.endDate, listing.price]);
+  }, [dateRange, price]);
 
   return (
     <ListingPageWrapper>
@@ -132,7 +133,7 @@ export const ListingClient = ({
           locationValue={locationValue}
         />
         <ListingReservation
-          price={listing.price}
+          price={price}
           totalPrice={totalPrice}
           dateRange={dateRange}
           disabledDates={disabledDates}

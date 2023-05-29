@@ -156,3 +156,9 @@ export const ListingReservationWrapper = styled.div`
   padding: 15px;
   height: max-content;
 `;
+
+export const TotalPrice = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;

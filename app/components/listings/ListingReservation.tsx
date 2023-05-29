@@ -1,14 +1,13 @@
 'use client';
 
-import { Range } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import { Range, RangeKeyDict } from 'react-date-range';
 
+import { Button } from '@/app/components/button/Button';
 import { Calendar } from '@/app/components/calendar/Calendar';
 import { Divider } from '@/app/styles/divider';
 import { formatCurrency } from '@/app/utilities/formatCurrency';
 
-import { ListingReservationWrapper, Night, Title } from './styles';
+import { ListingReservationWrapper, Night, Title, TotalPrice } from './styles';
 
 type ListingReservationProps = {
   price: number;
@@ -29,6 +28,10 @@ export const ListingReservation = ({
   disabled,
   disabledDates,
 }: ListingReservationProps) => {
+  const handleChangeRange = (value: RangeKeyDict) => {
+    onChangeRange(value.selection);
+  };
+
   return (
     <ListingReservationWrapper>
       <Title>
@@ -38,10 +41,14 @@ export const ListingReservation = ({
       <Calendar
         value={dateRange}
         disabledDates={disabledDates}
-        onChange={onChangeRange}
+        onChange={handleChangeRange}
       />
       <Divider />
-      <Title>Total price: {formatCurrency(totalPrice)}</Title>
+      <Button label="Reserve" onClick={onSubmit} disabled={disabled} />
+      <TotalPrice>
+        <Title>Total price:</Title>
+        <Title>{formatCurrency(totalPrice)}</Title>
+      </TotalPrice>
     </ListingReservationWrapper>
   );
 };
