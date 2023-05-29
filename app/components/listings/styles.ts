@@ -66,7 +66,13 @@ export const Night = styled.span`
 `;
 
 export const ListingPageWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 100%;
   padding: 100px 0 40px 0;
+
+  @media (${(props) => props.theme.device.laptop}) {
+    max-width: 1110px;
+  }
 `;
 
 // ListingHead
@@ -95,7 +101,7 @@ export const ImageHead = styled(Image).attrs({
 export const ListingBody = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: 32px;
+  gap: 32px;
 
   @media (${(props) => props.theme.device.tablet}) {
     grid-template-columns: 1fr 1fr;
