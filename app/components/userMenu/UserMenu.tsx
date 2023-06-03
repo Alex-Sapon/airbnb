@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 
+import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CSSTransition } from 'react-transition-group';
@@ -26,6 +27,8 @@ type UserMenuProps = {
 export const UserMenu = ({ currentUser }: UserMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const router = useRouter();
+
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
@@ -35,6 +38,8 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
   const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
 
   const handleLogout = () => signOut();
+
+  const handleGoTrips = () => router.push('/trips');
 
   const handleRentModal = () => {
     if (!currentUser) {
@@ -61,7 +66,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
         <MenuList ref={nodeRef}>
           {currentUser ? (
             <>
-              <MenuItem onClick={() => {}}>My trips</MenuItem>
+              <MenuItem onClick={handleGoTrips}>My trips</MenuItem>
               <MenuItem onClick={() => {}}>My favorites</MenuItem>
               <MenuItem onClick={() => {}}>My reservations</MenuItem>
               <MenuItem onClick={() => {}}>My properties</MenuItem>

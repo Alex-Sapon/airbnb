@@ -1,5 +1,4 @@
 import { getCurrentUser, getListingById, getReservations } from '@/app/actions';
-import { Container } from '@/app/components/container/Container';
 import { EmptyState } from '@/app/components/emptyState/EmptyState';
 import { ListingClient } from '@/app/components/listings/ListingClient';
 import { SafeUser } from '@/app/types';
@@ -17,13 +16,11 @@ const ListingPage = async ({ params }: { params: ParamsType }) => {
     return <EmptyState showReset />;
   }
   return (
-    <Container>
-      <ListingClient
-        reservations={reservations}
-        listing={listing}
-        currentUser={currentUser as SafeUser}
-      />
-    </Container>
+    <ListingClient
+      reservations={reservations}
+      listing={listing}
+      currentUser={currentUser as SafeUser}
+    />
   );
 };
 

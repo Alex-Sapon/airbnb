@@ -12,6 +12,7 @@ export const ListingCardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  row-gap: 5px;
 
   &.heart-wrapper {
     position: absolute;

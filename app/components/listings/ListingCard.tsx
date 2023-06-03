@@ -2,14 +2,13 @@
 
 import { MouseEvent } from 'react';
 
-import { Reservation } from '@prisma/client';
 import { format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/app/components/button/Button';
 import { HeartButton } from '@/app/components/heartButton/HeartButton';
 import { useCountry } from '@/app/hooks';
-import { SafeListing, SafeUser } from '@/app/types';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import { formatCurrency } from '@/app/utilities/formatCurrency';
 
 import {
@@ -24,7 +23,7 @@ import {
 
 type ListingCardProps = {
   data: SafeListing;
-  reservation?: Reservation;
+  reservation?: SafeReservation;
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
@@ -72,10 +71,10 @@ export const ListingCard = ({
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   };
 
-  const handleDetailListing = () => router.push(`/listings/${data.id}`);
+  const handleGoListing = () => router.push(`/listings/${data.id}`);
 
   return (
-    <ListingCardWrapper onClick={handleDetailListing}>
+    <ListingCardWrapper onClick={handleGoListing}>
       <ImageWrapper>
         <ImageCard src={data.imageSrc} />
         <HeartButton listingId={data.id} currentUser={currentUser} />

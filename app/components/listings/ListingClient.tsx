@@ -8,16 +8,19 @@ import { useRouter } from 'next/navigation';
 import { Range } from 'react-date-range';
 import { toast } from 'react-hot-toast';
 
+import { Container } from '@/app/components/container/Container';
 import {
   ListingHead,
   ListingInfo,
   ListingReservation,
 } from '@/app/components/listings';
+import {
+  ListingBody,
+  ListingPageWrapper,
+} from '@/app/components/listings/styles';
 import { categories } from '@/app/constants';
 import { useLoginModal } from '@/app/hooks';
-import { SafeListing, SafeReservations, SafeUser } from '@/app/types';
-
-import { ListingBody, ListingPageWrapper } from './styles';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 
 const initialDateRange = {
   startDate: new Date(),
@@ -26,7 +29,7 @@ const initialDateRange = {
 };
 
 type ListingPageClientProps = {
-  reservations?: SafeReservations[];
+  reservations?: SafeReservation[];
   listing: SafeListing & { user: SafeUser };
   currentUser: SafeUser | null;
 };
@@ -88,7 +91,7 @@ export const ListingClient = ({
       .then(() => {
         toast.success('Listing reserved!');
         setDateRange(initialDateRange);
-        router.refresh();
+        router.push('/trips');
       })
       .catch(() => {
         toast.error('Something went wrong.');
@@ -115,34 +118,36 @@ export const ListingClient = ({
   }, [dateRange, price]);
 
   return (
-    <ListingPageWrapper>
-      <ListingHead
-        id={id}
-        title={title}
-        locationValue={locationValue}
-        imageSrc={imageSrc}
-        currentUser={currentUser}
-      />
-      <ListingBody>
-        <ListingInfo
-          user={currentUser as SafeUser}
-          guestCount={guestCount}
-          roomCount={roomCount}
-          bathroomsCount={bathroomCount}
-          description={description}
-          category={category}
+    <Container>
+      <ListingPageWrapper>
+        <ListingHead
+          id={id}
+          title={title}
           locationValue={locationValue}
+          imageSrc={imageSrc}
+          currentUser={currentUser}
         />
-        <ListingReservation
-          price={price}
-          totalPrice={totalPrice}
-          dateRange={dateRange}
-          disabledDates={disabledDates}
-          disabled={isLoading}
-          onChangeRange={handleChangeRange}
-          onSubmit={onCreateReservation}
-        />
-      </ListingBody>
-    </ListingPageWrapper>
+        <ListingBody>
+          <ListingInfo
+            user={currentUser as SafeUser}
+            guestCount={guestCount}
+            roomCount={roomCount}
+            bathroomsCount={bathroomCount}
+            description={description}
+            category={category}
+            locationValue={locationValue}
+          />
+          <ListingReservation
+            price={price}
+            totalPrice={totalPrice}
+            dateRange={dateRange}
+            disabledDates={disabledDates}
+            disabled={isLoading}
+            onChangeRange={handleChangeRange}
+            onSubmit={onCreateReservation}
+          />
+        </ListingBody>
+      </ListingPageWrapper>
+    </Container>
   );
 };

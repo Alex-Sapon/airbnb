@@ -10,7 +10,7 @@ type EmptyStateProps = {
   title?: string;
   subtitle?: string;
   buttonLabel?: string;
-  showReset: boolean;
+  showReset?: boolean;
 };
 
 export const EmptyState = ({

@@ -13,7 +13,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
-  padding: ${({ small }) => (small ? '4px' : '11px')};
+  padding: ${({ small }) => (small ? '6px' : '11px')};
   background-color: ${({ theme, outline }) => {
     return outline ? theme.color.primary : theme.color.complementary;
   }};
