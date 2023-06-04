@@ -3,8 +3,9 @@
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/app/components/button/Button';
+import { Heading } from '@/app/components/heading/Heading';
 
-import { EmptyStateWrapper, Title, Subtitle } from './styles';
+import { EmptyStateWrapper } from './styles';
 
 type EmptyStateProps = {
   title?: string;
@@ -25,8 +26,7 @@ export const EmptyState = ({
 
   return (
     <EmptyStateWrapper>
-      <Title>{title}</Title>
-      <Subtitle>{subtitle}</Subtitle>
+      <Heading title={title} subtitle={subtitle} />
       {showReset && (
         <Button outline label={buttonLabel || ''} onClick={handleReset} />
       )}

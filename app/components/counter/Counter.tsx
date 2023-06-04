@@ -1,15 +1,10 @@
 'use client';
 
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-import {
-  CounterWrapper,
-  RightSide,
-  LeftSide,
-  Title,
-  Subtitle,
-  Button,
-} from './styles';
+import { Heading } from '@/app/components/heading/Heading';
+
+import { Button, CounterWrapper, RightSide } from './styles';
 
 type CounterProps = {
   title: string;
@@ -30,10 +25,7 @@ export const Counter = ({ title, subtitle, value, onChange }: CounterProps) => {
 
   return (
     <CounterWrapper>
-      <LeftSide>
-        <Title>{title}</Title>
-        <Subtitle>{subtitle}</Subtitle>
-      </LeftSide>
+      <Heading title={title} subtitle={subtitle} />
       <RightSide>
         <Button onClick={onRemove}>
           <AiOutlineMinus />

@@ -7,7 +7,12 @@ import { Calendar } from '@/app/components/calendar/Calendar';
 import { Divider } from '@/app/styles/divider';
 import { formatCurrency } from '@/app/utilities/formatCurrency';
 
-import { ListingReservationWrapper, Night, Title, TotalPrice } from './styles';
+import {
+  ListingReservationWrapper,
+  Night,
+  TextBold,
+  TotalPrice,
+} from './styles';
 
 type ListingReservationProps = {
   price: number;
@@ -34,9 +39,9 @@ export const ListingReservation = ({
 
   return (
     <ListingReservationWrapper>
-      <Title>
+      <TextBold>
         {formatCurrency(price)} <Night>night</Night>
-      </Title>
+      </TextBold>
       <Divider />
       <Calendar
         value={dateRange}
@@ -46,8 +51,8 @@ export const ListingReservation = ({
       <Divider />
       <Button label="Reserve" onClick={onSubmit} disabled={disabled} />
       <TotalPrice>
-        <Title>Total price:</Title>
-        <Title>{formatCurrency(totalPrice)}</Title>
+        <TextBold>Total price:</TextBold>
+        <TextBold>{formatCurrency(totalPrice)}</TextBold>
       </TotalPrice>
     </ListingReservationWrapper>
   );

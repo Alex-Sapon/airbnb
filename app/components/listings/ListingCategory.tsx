@@ -2,12 +2,9 @@
 
 import { IconType } from 'react-icons';
 
-import {
-  ListingCategoryWrapper,
-  CategoryBlock,
-  Subtitle,
-  Title,
-} from './styles';
+import { Heading } from '@/app/components/heading/Heading';
+
+import { CategoryBlock, ListingCategoryWrapper } from './styles';
 
 type ListingCategoryProps = {
   icon: IconType;
@@ -24,8 +21,7 @@ export const ListingCategory = ({
     <ListingCategoryWrapper>
       <Icon size={40} />
       <CategoryBlock>
-        <Title>{label}</Title>
-        <Subtitle>{description}</Subtitle>
+        <Heading title={label} subtitle={description} />
       </CategoryBlock>
     </ListingCategoryWrapper>
   );

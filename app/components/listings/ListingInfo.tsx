@@ -15,7 +15,7 @@ import {
   HostedDetails,
   HostedName,
   ListingInfoWrapper,
-  Subtitle,
+  TextLight,
 } from './styles';
 
 const Map = dynamic(() => import('@/app/components/map/Map'));
@@ -51,9 +51,9 @@ export const ListingInfo = ({
           <Avatar image={user?.image} />
         </HostedName>
         <HostedDetails>
-          <Subtitle>{guestCount} guests</Subtitle>
-          <Subtitle>{roomCount} rooms</Subtitle>
-          <Subtitle>{bathroomsCount} bathrooms</Subtitle>
+          <TextLight>{guestCount} guests</TextLight>
+          <TextLight>{roomCount} rooms</TextLight>
+          <TextLight>{bathroomsCount} bathrooms</TextLight>
         </HostedDetails>
       </Hosted>
       <Divider />

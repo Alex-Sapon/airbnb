@@ -1,16 +1,11 @@
 'use client';
 
+import { Heading } from '@/app/components/heading/Heading';
 import { HeartButton } from '@/app/components/heartButton/HeartButton';
 import { useCountry } from '@/app/hooks';
 import { SafeUser } from '@/app/types';
 
-import {
-  ListingHeadWrapper,
-  ImageHeadWrapper,
-  Subtitle,
-  Title,
-  ImageHead,
-} from './styles';
+import { ListingHeadWrapper, ImageHeadWrapper, ImageHead } from './styles';
 
 type ListingHeadProps = {
   id: string;
@@ -33,8 +28,10 @@ export const ListingHead = ({
 
   return (
     <ListingHeadWrapper>
-      <Title>{title}</Title>
-      <Subtitle>{`${location?.region}, ${location?.label}`}</Subtitle>
+      <Heading
+        title={title}
+        subtitle={`${location?.region}, ${location?.label}`}
+      />
       <ImageHeadWrapper>
         <ImageHead src={imageSrc} />
         <HeartButton listingId={id} currentUser={currentUser} />

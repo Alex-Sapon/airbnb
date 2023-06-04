@@ -10,19 +10,12 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
 import { Button } from '@/app/components/button/Button';
+import { Heading } from '@/app/components/heading/Heading';
 import { Input } from '@/app/components/inputs';
 import { Modal } from '@/app/components/modals/modal/Modal';
 import { useLoginModal, useRegisterModal } from '@/app/hooks';
 
-import {
-  Container,
-  Heading,
-  Title,
-  Subtitle,
-  Divider,
-  Text,
-  Login,
-} from './styles';
+import { Container, Divider, Text, Login } from './styles';
 
 export const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,10 +59,7 @@ export const RegisterModal = () => {
 
   const registerBody = (
     <Container>
-      <Heading>
-        <Title>Welcome to Airbnb</Title>
-        <Subtitle>Create an account!</Subtitle>
-      </Heading>
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
       <Input
         id="name"
         label="Name"

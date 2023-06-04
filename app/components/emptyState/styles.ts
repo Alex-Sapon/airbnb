@@ -12,14 +12,3 @@ export const EmptyStateWrapper = styled.div`
     width: max-content;
   }
 `;
-
-export const Title = styled.h2`
-  font-size: ${(props) => props.theme.fontSize.text_2xl};
-  font-weight: ${(props) => props.theme.fontWeight.semiBold};
-`;
-
-export const Subtitle = styled.h3`
-  color: ${(props) => props.theme.color.tertiary};
-  font-size: ${(props) => props.theme.fontSize.text_base};
-  font-weight: ${(props) => props.theme.fontWeight.regular};
-`;

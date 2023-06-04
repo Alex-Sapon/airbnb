@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/app/components/button/Button';
+import { Heading } from '@/app/components/heading/Heading';
 import { HeartButton } from '@/app/components/heartButton/HeartButton';
 import { useCountry } from '@/app/hooks';
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
@@ -16,8 +17,6 @@ import {
   ImageWrapper,
   ImageCard,
   Price,
-  Title,
-  Subtitle,
   Night,
 } from './styles';
 
@@ -79,10 +78,10 @@ export const ListingCard = ({
         <ImageCard src={data.imageSrc} />
         <HeartButton listingId={data.id} currentUser={currentUser} />
       </ImageWrapper>
-      <Title>
-        {location?.region}, {location?.label}
-      </Title>
-      <Subtitle>{reservationDate() || data.category}</Subtitle>
+      <Heading
+        title={`${location?.region}, ${location?.label}`}
+        subtitle={reservationDate() || data.category}
+      />
       <Price>
         {formatCurrency(price())}
         {!reservation && <Night>night</Night>}

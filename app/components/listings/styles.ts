@@ -19,6 +19,12 @@ export const ListingCardWrapper = styled.div`
     top: 5px;
     right: 5px;
   }
+
+  &:hover {
+    img {
+      scale: 1.1;
+    }
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -38,10 +44,6 @@ export const ImageCard = styled(Image).attrs({
   width: 100%;
   height: 100%;
   transition: all 0.3s ease;
-
-  &:hover {
-    scale: 1.1;
-  }
 `;
 
 export const Price = styled.div`
@@ -49,17 +51,6 @@ export const Price = styled.div`
   align-items: center;
   column-gap: 10px;
   font-weight: ${(props) => props.theme.fontWeight.semiBold};
-`;
-
-export const Title = styled.div`
-  font-size: ${(props) => props.theme.fontSize.text_lg};
-  font-weight: ${(props) => props.theme.fontWeight.bold};
-`;
-
-export const Subtitle = styled.div`
-  color: ${(props) => props.theme.color.tertiary};
-  font-size: ${(props) => props.theme.fontSize.text_sm};
-  font-weight: ${(props) => props.theme.fontWeight.regular};
 `;
 
 export const Night = styled.span`
@@ -116,13 +107,24 @@ export const ListingInfoWrapper = styled.div`
   row-gap: 20px;
 `;
 
+export const TextLight = styled.div`
+  color: ${(props) => props.theme.color.tertiary};
+  font-size: ${(props) => props.theme.fontSize.text_sm};
+  font-weight: ${(props) => props.theme.fontWeight.regular};
+`;
+
+export const TextBold = styled.div`
+  font-size: ${(props) => props.theme.fontSize.text_lg};
+  font-weight: ${(props) => props.theme.fontWeight.bold};
+`;
+
 export const Hosted = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 5px;
 `;
 
-export const HostedName = styled(Title)`
+export const HostedName = styled.div`
   display: flex;
   align-items: center;
   column-gap: 15px;

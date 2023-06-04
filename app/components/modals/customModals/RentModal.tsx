@@ -9,6 +9,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
 import { Counter } from '@/app/components/counter/Counter';
+import { Heading } from '@/app/components/heading/Heading';
 import { ImageUpload } from '@/app/components/imageUpload/ImageUpload';
 import { CategoryInput, CountrySelect, Input } from '@/app/components/inputs';
 import { CountrySelectValue } from '@/app/components/inputs/countrySelect/CountrySelect';
@@ -17,14 +18,7 @@ import { categories } from '@/app/constants';
 import { STEPS } from '@/app/enums/steps';
 import { useRentModal } from '@/app/hooks';
 
-import {
-  CategoryList,
-  Container,
-  Divider,
-  Heading,
-  Subtitle,
-  Title,
-} from './styles';
+import { CategoryList, Container, Divider } from './styles';
 
 export const RentModal = () => {
   const router = useRouter();
@@ -134,10 +128,10 @@ export const RentModal = () => {
 
   let rentBody = (
     <Container>
-      <Heading>
-        <Title>Which of these best describe your place?</Title>
-        <Subtitle>Pick a category</Subtitle>
-      </Heading>
+      <Heading
+        title="Which of these best describe your place?"
+        subtitle="Pick a category"
+      />
       <CategoryList>
         {categories.map(({ label, icon }) => (
           <CategoryInput
@@ -155,10 +149,10 @@ export const RentModal = () => {
   if (step === STEPS.LOCATION) {
     rentBody = (
       <Container>
-        <Heading>
-          <Title>Where is your place located?</Title>
-          <Subtitle>Help guest find you!</Subtitle>
-        </Heading>
+        <Heading
+          title="Where is your place located?"
+          subtitle="Help guest find you!"
+        />
         <CountrySelect
           value={location}
           onChange={(value) => setCustomValue('location', value)}
@@ -171,10 +165,11 @@ export const RentModal = () => {
   if (step === STEPS.INFO) {
     rentBody = (
       <Container>
-        <Heading>
-          <Title>Share some basic about your place</Title>
-          <Subtitle>What amenities do you have?</Subtitle>
-        </Heading>
+        <Heading
+          title="Share some basic about your place"
+          subtitle="What amenities do you have?"
+        />
+        <Divider />
         <Counter
           title="Guests"
           subtitle="How many guests do you allow?"
@@ -202,10 +197,10 @@ export const RentModal = () => {
   if (step === STEPS.IMAGES) {
     rentBody = (
       <Container>
-        <Heading>
-          <Title>Add a photo of your place</Title>
-          <Subtitle>Show guests what your place looks like!</Subtitle>
-        </Heading>
+        <Heading
+          title="Add a photo of your place"
+          subtitle="Show guests what your place looks like!"
+        />
         <ImageUpload
           value={imageSrc}
           onChange={(value) => setCustomValue('imageSrc', value)}
@@ -217,10 +212,10 @@ export const RentModal = () => {
   if (step === STEPS.DESCRIPTION) {
     rentBody = (
       <Container>
-        <Heading>
-          <Title>How would you describe your place?</Title>
-          <Subtitle>Short and sweet works best!</Subtitle>
-        </Heading>
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+        />
         <Input
           id="title"
           label="Title"
@@ -244,10 +239,10 @@ export const RentModal = () => {
   if (step === STEPS.PRICE) {
     rentBody = (
       <Container>
-        <Heading>
-          <Title>Now, set your price</Title>
-          <Subtitle>How much do you charge per night?</Subtitle>
-        </Heading>
+        <Heading
+          title="Now, set your price"
+          subtitle="How much do you charge per night?"
+        />
         <Input
           id="price"
           label="Price"
@@ -269,7 +264,7 @@ export const RentModal = () => {
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel()}
       secondaryActionLabel={secondaryActionLabel() as string}
-      secondaryAction={step === STEPS.CATEGORY ? null : onBack}
+      secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       body={rentBody}
       disabled={isLoading}
     />

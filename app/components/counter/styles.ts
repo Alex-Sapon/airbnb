@@ -15,16 +15,6 @@ export const RightSide = styled.div`
   width: 100px;
 `;
 
-export const LeftSide = styled.div``;
-
-export const Title = styled.div`
-  font-weight: ${(props) => props.theme.fontWeight.bold};
-`;
-
-export const Subtitle = styled.div`
-  font-weight: ${(props) => props.theme.fontWeight.light};
-`;
-
 export const Button = styled.div`
   cursor: pointer;
   width: 30px;

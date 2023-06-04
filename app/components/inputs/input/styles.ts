@@ -1,3 +1,4 @@
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import styled from 'styled-components';
 
 export const InputWrapper = styled.div`
@@ -5,7 +6,9 @@ export const InputWrapper = styled.div`
   position: relative;
 `;
 
-export const InputElement = styled.input<{ errors: string }>`
+export const InputElement = styled.input<{
+  errors: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
+}>`
   width: 100%;
   padding: 20px 10px 10px 10px;
   border: 2px solid
@@ -33,7 +36,10 @@ export const InputElement = styled.input<{ errors: string }>`
   }
 `;
 
-export const Label = styled.label<{ value: boolean; errors: string }>`
+export const Label = styled.label<{
+  value: boolean;
+  errors: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
+}>`
   user-select: none;
   transition: all 0.2s ease;
   position: absolute;

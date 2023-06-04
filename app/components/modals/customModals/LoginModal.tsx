@@ -10,19 +10,12 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
 import { Button } from '@/app/components/button/Button';
+import { Heading } from '@/app/components/heading/Heading';
 import { Input } from '@/app/components/inputs';
 import { Modal } from '@/app/components/modals/modal/Modal';
 import { useLoginModal, useRegisterModal } from '@/app/hooks';
 
-import {
-  Container,
-  Divider,
-  Heading,
-  Login,
-  Subtitle,
-  Text,
-  Title,
-} from './styles';
+import { Container, Divider, Login, Text } from './styles';
 
 export const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,10 +64,7 @@ export const LoginModal = () => {
 
   const loginBody = (
     <Container>
-      <Heading>
-        <Title>Welcome back</Title>
-        <Subtitle>Login to your account!</Subtitle>
-      </Heading>
+      <Heading title="Welcome back" subtitle="Login to your account!" />
       <Input
         id="email"
         label="Email"
