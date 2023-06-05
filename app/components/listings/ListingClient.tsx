@@ -14,13 +14,11 @@ import {
   ListingInfo,
   ListingReservation,
 } from '@/app/components/listings';
-import {
-  ListingBody,
-  ListingPageWrapper,
-} from '@/app/components/listings/styles';
 import { categories } from '@/app/constants';
 import { useLoginModal } from '@/app/hooks';
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
+
+import { ListingBody, ListingPageWrapper } from './styles';
 
 const initialDateRange = {
   startDate: new Date(),

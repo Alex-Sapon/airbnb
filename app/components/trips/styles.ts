@@ -5,6 +5,7 @@ export const TripsClientWrapper = styled.div`
 `;
 
 export const TripsList = styled.div`
+  margin: 30px 0;
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));

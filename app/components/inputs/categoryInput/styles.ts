@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const CategoryInputWrapper = styled.div<{
-  selected: boolean | undefined;
-}>`
+export const CategoryInputWrapper = styled.div<{ selected?: boolean }>`
   cursor: pointer;
   padding: 10px;
   transition: all 0.2s ease;

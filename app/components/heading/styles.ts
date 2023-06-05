@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const HeadingWrapper = styled.div``;
+export const HeadingWrapper = styled.div<{ center?: boolean }>`
+  text-align: ${(props) => (props.center ? 'center' : '')};
+`;
 
 export const Title = styled.div`
   margin-bottom: 5px;
