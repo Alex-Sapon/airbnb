@@ -39,7 +39,9 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
 
   const handleLogout = () => signOut();
 
-  const handleGoTrips = () => router.push('/trips');
+  const tripsPage = () => router.push('/trips');
+
+  const reservationsPage = () => router.push('/reservations');
 
   const handleRentModal = () => {
     if (!currentUser) {
@@ -66,9 +68,9 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
         <MenuList ref={nodeRef}>
           {currentUser ? (
             <>
-              <MenuItem onClick={handleGoTrips}>My trips</MenuItem>
+              <MenuItem onClick={tripsPage}>My trips</MenuItem>
               <MenuItem onClick={() => {}}>My favorites</MenuItem>
-              <MenuItem onClick={() => {}}>My reservations</MenuItem>
+              <MenuItem onClick={reservationsPage}>My reservations</MenuItem>
               <MenuItem onClick={() => {}}>My properties</MenuItem>
               <MenuItem onClick={rentModal.onOpen}>Airbnb my home</MenuItem>
               <Divider />

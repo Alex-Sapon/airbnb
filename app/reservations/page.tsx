@@ -1,9 +1,9 @@
 import { getCurrentUser, getReservations } from '@/app/actions';
 import { EmptyState } from '@/app/components/emptyState/EmptyState';
-import { TripsClient } from '@/app/components/trips/TripsClient';
-import { SafeReservation, SafeUser } from '@/app/types';
+import { ReservationsClient } from '@/app/components/reservations/ReservationsClient';
+import { SafeUser } from '@/app/types';
 
-const TripsPage = async () => {
+const ReservationsPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -15,18 +15,18 @@ const TripsPage = async () => {
   if (reservations.length === 0) {
     return (
       <EmptyState
-        title="No trips found"
-        subtitle="Looks like you havent reserved any trips."
+        title="No reservations found"
+        subtitle="Looks you have no reservations on your properties"
       />
     );
   }
 
   return (
-    <TripsClient
+    <ReservationsClient
+      reservations={reservations}
       currentUser={currentUser as SafeUser}
-      reservations={reservations as SafeReservation[]}
     />
   );
 };
 
-export default TripsPage;
+export default ReservationsPage;

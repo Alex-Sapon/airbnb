@@ -8,6 +8,13 @@ export const ListingListWrapper = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 `;
 
+export const CardList = styled.div`
+  margin: 30px 0;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+`;
+
 export const ListingCardWrapper = styled.div`
   width: 100%;
   display: flex;

@@ -13,18 +13,17 @@ import { CardList } from '@/app/components/listings/styles';
 import { ClientWrapper } from '@/app/styles/clientWrapper';
 import { SafeReservation, SafeUser } from '@/app/types';
 
-type TripsClientProps = {
+type ReservationsClientProps = {
   reservations: SafeReservation[];
   currentUser: SafeUser | null;
 };
 
-export const TripsClient = ({
+export const ReservationsClient = ({
   reservations,
   currentUser,
-}: TripsClientProps) => {
-  const [deletingId, setDeletingId] = useState('');
-
+}: ReservationsClientProps) => {
   const router = useRouter();
+  const [deletingId, setDeletingId] = useState('');
 
   const onCancel = (id: string) => {
     setDeletingId(id);
@@ -32,35 +31,31 @@ export const TripsClient = ({
     axios
       .delete(`/api/reservations/${id}`)
       .then(() => {
-        toast.success('Reservation cancelled');
+        toast.success('Reservation canceled');
         router.refresh();
       })
-      .catch((error) => {
-        toast.error(error?.response?.data?.error);
+      .catch(() => {
+        toast.error('Something went wrong');
       })
       .finally(() => {
         setDeletingId('');
       });
   };
-
   return (
     <Container>
       <ClientWrapper>
-        <Heading
-          title="Trips"
-          subtitle="Where you've been and where you've going"
-        />
+        <Heading title="Reservations" subtitle="Bookings on your properties" />
         <CardList>
           {reservations.map((reservation) => (
             <ListingCard
               key={reservation.id}
               data={reservation.listing}
-              reservation={reservation}
               currentUser={currentUser}
-              disabled={reservation.id === deletingId}
-              actionId={reservation.id}
-              actionLabel="Cancel reservation"
+              reservation={reservation}
               onAction={onCancel}
+              actionId={reservation.id}
+              actionLabel="Cancel guest reservation"
+              disabled={reservation.id === deletingId}
             />
           ))}
         </CardList>
