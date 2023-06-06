@@ -16,9 +16,10 @@ import {
 } from '@/app/components/listings';
 import { categories } from '@/app/constants';
 import { useLoginModal } from '@/app/hooks';
+import { ClientWrapper } from '@/app/styles/clientWrapper';
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 
-import { ListingBody, ListingPageWrapper } from './styles';
+import { ListingBody } from './styles';
 
 const initialDateRange = {
   startDate: new Date(),
@@ -117,7 +118,7 @@ export const ListingClient = ({
 
   return (
     <Container>
-      <ListingPageWrapper>
+      <ClientWrapper>
         <ListingHead
           id={id}
           title={title}
@@ -127,7 +128,7 @@ export const ListingClient = ({
         />
         <ListingBody>
           <ListingInfo
-            user={currentUser as SafeUser}
+            user={currentUser}
             guestCount={guestCount}
             roomCount={roomCount}
             bathroomsCount={bathroomCount}
@@ -145,7 +146,7 @@ export const ListingClient = ({
             onSubmit={onCreateReservation}
           />
         </ListingBody>
-      </ListingPageWrapper>
+      </ClientWrapper>
     </Container>
   );
 };

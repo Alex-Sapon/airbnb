@@ -35,13 +35,15 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
 
   const nodeRef = useRef(null);
 
-  const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
-
-  const handleLogout = () => signOut();
-
   const tripsPage = () => router.push('/trips');
 
   const reservationsPage = () => router.push('/reservations');
+
+  const favoritesPage = () => router.push('/favorites');
+
+  const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
+
+  const handleLogout = () => signOut();
 
   const handleRentModal = () => {
     if (!currentUser) {
@@ -69,7 +71,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
           {currentUser ? (
             <>
               <MenuItem onClick={tripsPage}>My trips</MenuItem>
-              <MenuItem onClick={() => {}}>My favorites</MenuItem>
+              <MenuItem onClick={favoritesPage}>My favorites</MenuItem>
               <MenuItem onClick={reservationsPage}>My reservations</MenuItem>
               <MenuItem onClick={() => {}}>My properties</MenuItem>
               <MenuItem onClick={rentModal.onOpen}>Airbnb my home</MenuItem>

@@ -41,6 +41,7 @@ export const ReservationsClient = ({
         setDeletingId('');
       });
   };
+
   return (
     <Container>
       <ClientWrapper>

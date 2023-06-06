@@ -21,7 +21,7 @@ import {
 const Map = dynamic(() => import('@/app/components/map/Map'));
 
 type ListingInfoProps = {
-  user: SafeUser;
+  user: SafeUser | null;
   description: string;
   guestCount: number;
   roomCount: number;

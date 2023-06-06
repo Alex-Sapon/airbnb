@@ -35,8 +35,8 @@ export const TripsClient = ({
         toast.success('Reservation cancelled');
         router.refresh();
       })
-      .catch((error) => {
-        toast.error(error?.response?.data?.error);
+      .catch(() => {
+        toast.error('Something went wrong');
       })
       .finally(() => {
         setDeletingId('');

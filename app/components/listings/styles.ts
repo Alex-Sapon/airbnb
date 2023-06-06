@@ -64,16 +64,6 @@ export const Night = styled.span`
   font-weight: ${(props) => props.theme.fontWeight.light};
 `;
 
-export const ListingPageWrapper = styled.div`
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 100px 0 40px 0;
-
-  @media (${(props) => props.theme.device.laptop}) {
-    max-width: 1110px;
-  }
-`;
-
 // ListingHead
 export const ListingHeadWrapper = styled.div``;
 
