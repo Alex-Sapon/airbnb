@@ -1,10 +1,10 @@
 import prisma from '@/app/libs/prismadb';
 
-type ParamsType = {
+export type ListingParamsType = {
   listingId?: string;
 };
 
-export const getListingById = async ({ listingId }: ParamsType) => {
+export const getListingById = async ({ listingId }: ListingParamsType) => {
   try {
     const listing = await prisma.listing.findUnique({
       where: {

@@ -36,10 +36,9 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
   const nodeRef = useRef(null);
 
   const tripsPage = () => router.push('/trips');
-
   const reservationsPage = () => router.push('/reservations');
-
   const favoritesPage = () => router.push('/favorites');
+  const propertiesPage = () => router.push('/properties');
 
   const toggleIsOpen = () => setIsOpen((prevState) => !prevState);
 
@@ -73,7 +72,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
               <MenuItem onClick={tripsPage}>My trips</MenuItem>
               <MenuItem onClick={favoritesPage}>My favorites</MenuItem>
               <MenuItem onClick={reservationsPage}>My reservations</MenuItem>
-              <MenuItem onClick={() => {}}>My properties</MenuItem>
+              <MenuItem onClick={propertiesPage}>My properties</MenuItem>
               <MenuItem onClick={rentModal.onOpen}>Airbnb my home</MenuItem>
               <Divider />
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
