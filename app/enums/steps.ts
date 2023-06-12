@@ -6,3 +6,9 @@ export enum STEPS {
   DESCRIPTION = 4,
   PRICE = 5,
 }
+
+export enum SearchSteps {
+  LOCATION = 0,
+  DATA = 1,
+  INFO = 2,
+}

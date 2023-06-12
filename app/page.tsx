@@ -1,9 +1,7 @@
-import { getCurrentUser } from '@/app/actions';
-import { getListings, ListingParams } from '@/app/actions/getListings';
+import { getCurrentUser, getListings, ListingParams } from '@/app/actions';
 import { EmptyState } from '@/app/components/emptyState/EmptyState';
+import { ListingList } from '@/app/components/listings/ListingList';
 import { SafeUser } from '@/app/types';
-
-import { ListingList } from './components/listings/ListingList';
 
 type HomeProps = {
   searchParams: ListingParams;
