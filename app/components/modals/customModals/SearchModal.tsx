@@ -3,14 +3,23 @@
 import { useMemo, useState } from 'react';
 
 import { formatISO } from 'date-fns';
+import dynamic from 'next/dynamic';
 import { useRouter, useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
 import { Range } from 'react-date-range';
 
-import { CountrySelectValue } from '@/app/components/inputs/countrySelect/CountrySelect';
+import { Calendar } from '@/app/components/calendar/Calendar';
+import { Counter } from '@/app/components/counter/Counter';
+import { Heading } from '@/app/components/heading/Heading';
+import {
+  CountrySelect,
+  CountrySelectValue,
+} from '@/app/components/inputs/countrySelect/CountrySelect';
 import { Modal } from '@/app/components/modals/modal/Modal';
 import { SearchSteps } from '@/app/enums/steps';
 import { useSearchModal } from '@/app/hooks/useSearchModal';
+
+import { Container, Divider } from './styles';
 
 export const SearchModal = () => {
   const searchModal = useSearchModal();
@@ -27,6 +36,10 @@ export const SearchModal = () => {
     endDate: new Date(),
     key: 'selection',
   });
+
+  const Map = useMemo(() => {
+    return dynamic(() => import('@/app/components/map/Map'), { ssr: false });
+  }, [location]);
 
   const onNext = () => {
     if (step !== SearchSteps.INFO) {
@@ -93,16 +106,76 @@ export const SearchModal = () => {
     return 'Back';
   }, [step]);
 
+  let bodyContent = (
+    <Container>
+      <Heading
+        title="Where do you wanna go?"
+        subtitle="Find the perfect location!"
+      />
+      <CountrySelect
+        value={location as CountrySelectValue}
+        onChange={(value) => setLocation(value)}
+      />
+      <Divider />
+      <Map center={location?.latlng} />
+    </Container>
+  );
+
+  if (step === SearchSteps.DATE) {
+    bodyContent = (
+      <Container>
+        <Heading
+          title="When do you plan to go?"
+          subtitle="Make sure everyone is free!"
+        />
+        <Calendar
+          value={dateRange}
+          onChange={(value) => setDateRange(value.selection)}
+        />
+      </Container>
+    );
+  }
+
+  if (step === SearchSteps.INFO) {
+    bodyContent = (
+      <Container>
+        <Heading title="More information" subtitle="Find your perfect place!" />
+        <Divider />
+        <Counter
+          title="Guests"
+          subtitle="How many guests are coming?"
+          value={guestCount}
+          onChange={(value) => setGuestCount(value)}
+        />
+        <Divider />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you need?"
+          value={roomCount}
+          onChange={(value) => setRoomCount(value)}
+        />
+        <Divider />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you need?"
+          value={bathroomCount}
+          onChange={(value) => setBathroomCount(value)}
+        />
+      </Container>
+    );
+  }
+
   return (
     <Modal
+      title="Filters"
       isOpen={searchModal.isOpen}
       onClose={searchModal.onClose}
-      onSubmit={searchModal.onOpen}
+      onSubmit={onSubmit}
       disabled={false}
       actionLabel={actionLabel}
       secondaryAction={step === SearchSteps.LOCATION ? undefined : onBack}
       secondaryActionLabel={secondaryActionLabel}
-      title="Filters"
+      body={bodyContent}
     />
   );
 };

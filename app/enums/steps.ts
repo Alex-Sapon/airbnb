@@ -9,6 +9,6 @@ export enum STEPS {
 
 export enum SearchSteps {
   LOCATION = 0,
-  DATA = 1,
+  DATE = 1,
   INFO = 2,
 }

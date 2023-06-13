@@ -10,7 +10,7 @@ export type CountrySelectValue = {
   value: FlagIconCode;
   label: string;
   flag: string;
-  latlng: string[];
+  latlng: number[];
   region: string;
 };
 
