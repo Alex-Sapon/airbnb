@@ -21,12 +21,17 @@ export const getListings = async (params: ListingParams) => {
       locationValue,
       startDate,
       endDate,
+      category,
     } = params;
 
     const query: any = {};
 
     if (userId) {
       query.userId = userId;
+    }
+
+    if (category) {
+      query.category = category;
     }
 
     if (guestCount) {
