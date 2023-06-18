@@ -15,7 +15,7 @@ export const ListingList = ({ listings, currentUser }: ListingListProps) => {
   return (
     <Container>
       <ListingListWrapper>
-        {listings.map((listing: SafeListing) => (
+        {listings.map((listing) => (
           <ListingCard
             key={listing.id}
             data={listing}

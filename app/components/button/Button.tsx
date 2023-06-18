@@ -30,8 +30,8 @@ export const Button = ({
   <ButtonStyled
     onClick={onClick}
     disabled={disabled}
-    outline={outline as boolean}
-    small={small as boolean}
+    outline={outline}
+    small={!!small}
   >
     {icon && <Icon icon={icon} size={size || 16} />}
     {label}

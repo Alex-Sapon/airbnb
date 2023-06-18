@@ -28,7 +28,7 @@ export const EmptyState = ({
     <EmptyStateWrapper>
       <Heading title={title} subtitle={subtitle} center />
       {showReset && (
-        <Button outline label={buttonLabel || ''} onClick={handleReset} />
+        <Button outline label={buttonLabel} onClick={handleReset} />
       )}
     </EmptyStateWrapper>
   );
