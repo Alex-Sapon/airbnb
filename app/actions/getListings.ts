@@ -1,14 +1,29 @@
+import { Prisma } from '@prisma/client';
+
 import prisma from '@/app/libs/prismadb';
+
+import Enumerable = Prisma.Enumerable;
+import ListingWhereInput = Prisma.ListingWhereInput;
 
 export type ListingParams = {
   userId?: string;
   guestCount?: number;
   roomCount?: number;
   bathroomCount?: number;
-  locationValue?: string;
   startDate?: string;
   endDate?: string;
+  locationValue?: string;
   category?: string;
+};
+
+type QueryType = {
+  userId?: string;
+  category?: string;
+  guestCount?: { gte: number };
+  roomCount?: { gte: number };
+  bathroomCount?: { gte: number };
+  locationValue?: string;
+  NOT?: Enumerable<ListingWhereInput>;
 };
 
 export const getListings = async (params: ListingParams) => {
@@ -24,7 +39,7 @@ export const getListings = async (params: ListingParams) => {
       category,
     } = params;
 
-    const query: any = {};
+    const query: QueryType = {};
 
     if (userId) {
       query.userId = userId;
@@ -62,11 +77,11 @@ export const getListings = async (params: ListingParams) => {
           some: {
             OR: [
               {
-                endDate: { gte: endDate },
+                endDate: { gte: startDate },
                 startDate: { lte: startDate },
               },
               {
-                startDate: { lte: startDate },
+                startDate: { lte: endDate },
                 endDate: { gte: endDate },
               },
             ],

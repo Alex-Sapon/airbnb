@@ -17,7 +17,7 @@ type ImageUploadProps = {
 };
 
 export const ImageUpload = ({ value, onChange }: ImageUploadProps) => {
-  const handleUpload = (result: any) => {
+  const handleUpload = (result: { info: { secure_url: string } }) => {
     onChange(result.info.secure_url);
   };
 

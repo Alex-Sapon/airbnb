@@ -1,7 +1,7 @@
-import { getCurrentUser } from '@/app/actions';
-import { getFavoriteListings } from '@/app/actions/getFavoritesListings';
+import { getCurrentUser, getFavoriteListings } from '@/app/actions';
 import { EmptyState } from '@/app/components/emptyState/EmptyState';
 import { FavoritesClient } from '@/app/components/favorites/FavoritesClient';
+import { SafeUser } from '@/app/types';
 
 const ListingPage = async () => {
   const currentUser = await getCurrentUser();
@@ -17,10 +17,10 @@ const ListingPage = async () => {
   }
 
   return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <FavoritesClient currentUser={currentUser} listings={favorites} />
-    </>
+    <FavoritesClient
+      listings={favorites}
+      currentUser={currentUser as SafeUser}
+    />
   );
 };
 

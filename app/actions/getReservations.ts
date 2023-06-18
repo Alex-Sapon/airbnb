@@ -9,9 +9,7 @@ type ParamsType = {
 type QueryType = {
   listingId?: string;
   userId?: string;
-  listing?: {
-    userId: string;
-  };
+  listing?: { userId: string };
 };
 
 export const getReservations = async (params: ParamsType) => {

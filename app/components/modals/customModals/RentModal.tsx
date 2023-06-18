@@ -49,17 +49,11 @@ export const RentModal = () => {
     },
   });
 
-  // @ts-ignore
   const category = watch('category');
-  // @ts-ignore
   const location = watch('location');
-  // @ts-ignore
   const guestCount = watch('guestCount');
-  // @ts-ignore
   const roomCount = watch('roomCount');
-  // @ts-ignore
   const bathroomCount = watch('bathroomCount');
-  // @ts-ignore
   const imageSrc = watch('imageSrc');
 
   const Map = useMemo(() => {
