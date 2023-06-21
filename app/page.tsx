@@ -3,6 +3,8 @@ import { EmptyState } from '@/app/components/emptyState/EmptyState';
 import { ListingList } from '@/app/components/listings/ListingList';
 import { SafeUser } from '@/app/types';
 
+export const dynamic = 'force-dynamic';
+
 type HomeProps = {
   searchParams: ListingParams;
 };

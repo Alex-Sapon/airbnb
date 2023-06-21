@@ -21,7 +21,8 @@ export const ListingCardWrapper = styled.div`
   flex-direction: column;
   row-gap: 7px;
 
-  & > button {
+  & > button,
+  & > p {
     margin-top: auto;
   }
 
@@ -57,7 +58,7 @@ export const ImageCard = styled(Image).attrs({
   transition: all 0.3s ease;
 `;
 
-export const Price = styled.div`
+export const Price = styled.p`
   display: flex;
   align-items: center;
   column-gap: 10px;

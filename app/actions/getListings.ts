@@ -49,15 +49,15 @@ export const getListings = async (params: ListingParams) => {
       query.category = category;
     }
 
-    if (guestCount) {
-      query.guestCount = {
-        gte: Number(guestCount),
-      };
-    }
-
     if (roomCount) {
       query.roomCount = {
         gte: Number(roomCount),
+      };
+    }
+
+    if (guestCount) {
+      query.guestCount = {
+        gte: Number(guestCount),
       };
     }
 

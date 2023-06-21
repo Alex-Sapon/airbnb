@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Nunito } from 'next/font/google';
 
-import { getCurrentUser } from '@/app/actions/getCurrentUser';
+import { getCurrentUser } from '@/app/actions';
 import {
   LoginModal,
   RegisterModal,
@@ -11,6 +11,7 @@ import {
 } from '@/app/components/modals';
 import { Navbar } from '@/app/components/navbar/Navbar';
 import { Layout } from '@/app/providers/Layout';
+import { SafeUser } from '@/app/types';
 
 export const metadata = {
   title: 'Airbnb',
@@ -32,8 +33,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           <RentModal />
           <LoginModal />
           <RegisterModal />
-          {/* @ts-expect-error Server Component */}
-          <Navbar currentUser={currentUser} />
+          <Navbar currentUser={currentUser as SafeUser} />
           {children}
         </Layout>
       </body>
